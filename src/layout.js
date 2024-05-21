@@ -10,8 +10,8 @@ const Layout = () => {
         <>
             <Header />
             <Onlet />
-           
-            <Footer/>
+            {/*            
+            <Footer/> */}
         </>
     );
 };
