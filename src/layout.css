@@ -1,0 +1,295 @@
+.Container-header {
+
+    text-align: center;
+    justify-content: center;
+}
+
+.column {
+    flex: 1;
+    margin-right: 30px;
+    /* Khoảng cách giữa các cột */
+    text-align: center;
+    margin: 10px;
+}
+
+.column:last-child {
+    margin-right: 0;
+    /* Loại bỏ khoảng cách ở cột cuối cùng */
+}
+
+.headertop {
+    background-color: rgb(57, 56, 56);
+    color: white;
+    width: auto;
+    height: 47px;
+    padding-top: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
+.phone {
+    text-align: center;
+    justify-content: center;
+}
+
+/* styles.css */
+
+.btn-booking {
+    margin-left: 40px;
+    background-color: #5e503f;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-booking:hover {
+    transform: scale(1.1);
+    /* Zoom button lên 110% khi hover */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr repeat(6, 1fr);
+    /* Chia hàng thành 7 cột bằng nhau */
+    gap: 10px;
+    /* Khoảng cách giữa các cột */
+
+}
+
+.content-wrapper,
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Chỉnh nội dung dọc vào giữa */
+    align-items: center;
+    /* Chỉnh nội dung ngang vào giữa */
+    text-align: center;
+    /* Chỉnh văn bản vào giữa */
+}
+
+.grid-item img {
+    width: auto;
+    height: 100px;
+
+}
+
+@keyframes colorChange {
+    0% {
+        color: red;
+    }
+
+    50% {
+        color: blue;
+    }
+
+    75% {
+        color: yellow;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+.blinking-text {
+    font-weight: 1000;
+    animation: colorChange 1s linear infinite;
+}
+
+/* BODY CONTAINER****************************************************************** */
+.Onlet-body {
+    background-image: url("../public/asset1/images/hotel.jpg");
+    height: 400px;
+    /* background-size: cover; */
+}
+
+.Onlet-list {
+    background-color: rgb(57, 56, 56);
+    height: 120px;
+}
+
+.List {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+
+}
+
+.col-sm-2 {
+    /* border: 5px solid white; */
+    background-color: white;
+    margin-right: 5px;
+    padding-bottom: 10px;
+
+
+}
+
+.TfLIST {
+    background-color: rgb(57, 56, 56);
+}
+
+.btn-check {
+    position: relative;
+    overflow: hidden;
+    background-color: #d3b28d;
+    border-radius: 70px;
+    height: 30px;
+    margin-top: 22px;
+}
+
+.btn-check::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(70, 100, 85, 0.3);
+    transition: all 0.5s;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-check:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.col-sm-6 {
+
+    text-align: center;
+    justify-content: center;
+}
+
+.moving-image {
+    border-radius: 10px;
+    animation: moveUpDown 2s infinite alternate;
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+.moving-imageDif {
+    border-radius: 10px;
+    animation: moveUp 2s infinite alternate;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(10%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.LearnMore{
+    margin-top: 50px;
+}
+.btnLearnMore{
+    color: white;
+    background-color: rgb(71, 71, 240);
+}
+.btnLearnMore:hover{
+    transform: scale(1.1);
+    background-color: rgb(20, 20, 252);
+}
+.room{
+    margin-top: 25px;
+    text-align: center;
+    justify-self: center;
+}
+/*********************************************     FOOTER CSS   *********************************************************************************************************************/
+/* styles.css */
+
+.footer-body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.footer-section h2 {
+    margin-top: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    display: inline-block;
+    background-color: #ff9900;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e68a00;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}

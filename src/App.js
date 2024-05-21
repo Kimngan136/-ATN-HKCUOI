@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
+import Layout from './layout';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const handleLogin = () => {
+        setLoggedIn(true);
+    }
+
+    const handleLogout = () => {
+        setLoggedIn(false);
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        if (token) {
+            setLoggedIn(true);
+        }
+    }, []);
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+
+
+                    </Route>
+                </Routes>
+            </BrowserRouter >
+
+        </>
+    );
 }
 
 export default App;
