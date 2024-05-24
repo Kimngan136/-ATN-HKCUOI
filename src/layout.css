@@ -108,16 +108,15 @@
     /* background-size: cover; */
 }
 
-.Onlet-list {
-    background-color: rgb(57, 56, 56);
-    height: 120px;
-}
 
 .List {
     display: flex;
     justify-content: center;
     text-align: center;
     padding: 30px;
+    height: 170px;
+        background-color: rgb(57, 56, 56);
+
 
 }
 
@@ -197,99 +196,195 @@
     }
 }
 
-.LearnMore{
+.LearnMore {
     margin-top: 50px;
 }
-.btnLearnMore{
+
+.btnLearnMore {
     color: white;
     background-color: rgb(71, 71, 240);
 }
-.btnLearnMore:hover{
+
+.btnLearnMore:hover {
     transform: scale(1.1);
     background-color: rgb(20, 20, 252);
 }
-.room{
+
+.room {
     margin-top: 25px;
     text-align: center;
     justify-self: center;
 }
+
 /*********************************************     FOOTER CSS   *********************************************************************************************************************/
 /* styles.css */
-
-.footer-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-footer {
+.footer {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
+    padding: 40px 0;
 }
 
 .footer-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
-.footer-section {
+.footer-column {
     flex: 1;
-    padding: 0 15px;
+    margin: 0 10px;
 }
 
-.footer-section h2 {
-    margin-top: 0;
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
-.footer-section ul {
+.footer-column p {
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 10px;
+.footer-column ul li {
+    margin-bottom: 5px;
 }
 
-.footer-section ul li a {
+.footer-column ul li a {
     color: #fff;
     text-decoration: none;
 }
 
-.footer-section ul li a:hover {
-    text-decoration: underline;
+.social-icons {
+    padding: 0;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
+.social-icons li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.social-icons li:last-child {
+    margin-right: 0;
+}
+/***********************************************************************        FILTER       *************************************************************/
+.hotel-filter {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.hotel-filter h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.filter-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input[type="number"],
+.input-group input[type="checkbox"],
+.input-group select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.input-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.input-group .checkbox-label {
+    display: flex;
+    align-items: center;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+.hotel-list {
+    list-style: none;
+    padding: 0;
+}
+
+.hotel-list li {
+    background-color: #fff;
     padding: 10px;
     margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.contact-form button {
-    display: inline-block;
-    background-color: #ff9900;
-    color: #fff;
+.hotel-list li span {
+    display: block;
+}
+.clear-button {
+    background-color: #f44336;
+  
+    border: none;
+        color: white;
+  
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.contact-form button:hover {
-    background-color: #e68a00;
-}
-
-.footer-bottom {
+   
     text-align: center;
-    padding: 10px;
-    border-top: 1px solid #444;
-    margin-top: 20px;
+    text-decoration: none;
+  
+    display: inline-block;
+    
+    font-size: 16px;
+
+    margin: 4px 2px;
+  
+    cursor: pointer;
+   
+    border-radius: 12px;
+    
+    transition: background-color 0.3s ease;
+   
 }
+
+.clear-button:hover {
+    background-color: #d32f2f;
+    
+} 
+
+

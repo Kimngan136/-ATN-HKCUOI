@@ -9,9 +9,13 @@ const Layout = () => {
     return (
         <>
             <Header />
+
             <Onlet />
-            {/*            
-            <Footer/> */}
+
+
+            <Footer />
+
+
         </>
     );
 };

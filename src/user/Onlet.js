@@ -1,14 +1,21 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import HotelFilter from './HotelFilter';
+
 
 const Header = () => {
+    const validateInput = (input) => {
+        if (input.value < 1) {
+            input.value = 1;
+        } else if (input.value > 6) {
+            input.value = 6;
+        }
+    };
     return (
         <div className='Container-Onlet'>
             <div className='Onlet-body' >
-                <p>
-                    khu vực chưa có dữ liệu
-                </p>
+
             </div>
             <div className='Onlet-list'>
                 <div class='row List' style={{ color: 'black', }}>
@@ -18,14 +25,15 @@ const Header = () => {
                     <div class='col-sm-2' >Ngày Trả Phòng
                         <input type="date" class="form-control" id="checkIn"></input>
                     </div>
-                    <div class='col-sm-2'>Số Khách
-                        <input type="number" class="form-control" id="quantity" placeholder="Số lượng"></input>
+                    <div class="col-sm-2">Số Khách
+                        <input type="number" class="form-control" id="quantity" placeholder="Số lượng" min="1" max="6" oninput="validateInput(this)" />
                     </div>
+
                     <div class='col-sm-2' >Loại Phòng
                         <select class="form-control col-sm-12" id="classify" style={{ width: 200 }}>
                             <option>Phòng Đơn</option>
                             <option>Phòng Đôi</option>
-                            <option>Phòng Lớn (2-4 người)</option>
+                            <option>Phòng Lớn (2-6 người)</option>
                         </select>
                     </div>
                     <div class='col-sm-2 TfLIST' >
@@ -75,14 +83,19 @@ const Header = () => {
 
                     </div>
                 </div>
+                <div className='TOP3' style={{ marginTop:10, color:'black', fontWeight:'bold'}}>
+                    <h5>TOP 3 KHÁCH SẠN HÀNG ĐẦU
+                    </h5>
+                </div>
                 <div className='row room'>
+
                     <div className='col'>
                         <div class="card" >
                             <img src='../asset1/images/1.jpg' style={{ width: 600, height: 400, }} />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">KHÁCH SẠN ĐỀ XUẤT 1</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" class="btn btn-primary">xem thêm</a>
                             </div>
                         </div>
                     </div>
@@ -90,9 +103,9 @@ const Header = () => {
                         <div class="card" >
                             <img src='../asset1/images/2.jpg' style={{ width: 600, height: 400, }} />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">KHÁCH SẠN ĐỀ XUẤT 2</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" class="btn btn-primary">xem thêm</a>
                             </div>
                         </div>
                     </div>
@@ -100,16 +113,19 @@ const Header = () => {
                         <div class="card" >
                             <img src='../asset1/images/3.jpg' style={{ width: 600, height: 400, }} />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">KHÁCH SẠN ĐỀ XUẤT 3</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" class="btn btn-primary">xem thêm</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div>
+                    <HotelFilter/>
+                </div>
             </div>
-            
-        </div>
+
+        </div >
 
 
     );

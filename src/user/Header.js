@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faMapMarkerAlt, faBars, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faMapMarkerAlt, faBars, faCalendarDays, faStar } from '@fortawesome/free-solid-svg-icons';
 import { CgEnter } from 'react-icons/cg';
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
 
                             </div>
                             <button
-                                style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop:-10, }} // Inline styling
+                                style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: -10, }} // Inline styling
                                 className='btn-booking'>
                                 Đặt Ngay ...
                                 <FontAwesomeIcon icon={faCalendarDays} />
@@ -42,15 +42,18 @@ const Header = () => {
 
 
             <div className="headerLogo">
-               
+
                 <div class="grid-container">
                     <div class="grid-item">
                         <div class="content-wrapper">
-                            <img src="../asset1/images/logo.jpg"  />
+                            <img src="../asset1/images/logo.jpg" />
                             <span class="blinking-text">BAO PHÊ PHA</span>
                         </div>
                     </div>
-                    <div class="grid-item">TRANG CHỦ</div>
+                    <div class="grid-item"  >
+                        <a><FontAwesomeIcon icon={faStar} /></a>
+                        <p> YÊU THÍCH</p>
+                    </div>
                     <div class="grid-item">ƯU ĐÃI</div>
                     <div class="grid-item">DỊCH VỤ</div>
                     <div class="grid-item">PHÒNG</div>
