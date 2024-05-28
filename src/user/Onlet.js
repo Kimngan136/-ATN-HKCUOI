@@ -1,7 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays, faPerson, faHouse } from '@fortawesome/free-solid-svg-icons';
 import HotelFilter from './HotelFilter';
+import { Divider } from 'antd';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -15,10 +17,17 @@ const Header = () => {
     return (
         <div className='Container-Onlet'>
             <div className='Onlet-body' >
-
-            </div>
-            <div className='Onlet-list'>
-                <div class='row List' style={{ color: 'black', }}>
+                <div className='onlet-text'>
+                    <h1 style={{marginTop:50,}}>Iqra Beach Hotel</h1>
+                    <span>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                   </span>
+                </div>
+                <div class='row List' style={{ color: 'black'}}>
                     <div class='col-sm-2' >Ngày Nhận Phòng
                         <input type="date" class="form-control" id="checkIn"></input>
                     </div>
@@ -43,12 +52,15 @@ const Header = () => {
                         </button>
                     </div>
                 </div>
+            </div>
+            <div className='Onlet-list'>
+                
 
                 <div className='welcome'>
                     <div className='row'>
                         <div className='col-sm-6 LearnMore'>
                             <h3>
-                                WELCOME TO <a style={{ fontWeight: 'bold' }}>BAO PHÊ PHA HOTEL</a>
+                                WELCOME TO <a style={{ fontWeight: 'bold' }}>Iqra Beach Hotel</a>
                             </h3>
                             <p>---------------------------------</p>
                             <h4>
@@ -57,11 +69,8 @@ const Header = () => {
                                 <br />
                             </h4>
                             <h6 style={{ color: 'black' }}>
-                                Chào mừng đến với Bao Phê Pha - điểm đến lý tưởng cho những ai đang tìm kiếm một trải nghiệm nghỉ dưỡng đẳng cấp và thư giãn tại một trong những địa điểm tuyệt vời nhất của Việt Nam.<br />
-                                Với vị trí đắc địa tại trung tâm thành phố, Bao Phê Pha mang đến không gian sang trọng và thoải mái, kết hợp với dịch vụ chuyên nghiệp và tiện nghi hiện đại.<br />
-                                Ngoài ra, Bao Phê Pha còn tự hào với dịch vụ ẩm thực đa dạng và tinh tế, từ những món ăn đặc sản đến hương vị quốc tế, hứa hẹn sẽ làm hài lòng mọi vị khách khó tính nhất.<br />
-                                Hãy đặt chân đến Bao Phê Pha và tận hưởng một kỳ nghỉ tuyệt vời, nơi mọi yêu cầu của bạn được chăm sóc kỹ lưỡng và đem lại trải nghiệm đích thực của sự sang trọng và tiện nghi. <br />
-                                <p style={{ color: 'black' }} >Chúng tôi luôn sẵn lòng chào đón bạn!</p>
+                                Trang web Booking Iqra Beach là một nền tảng trực tuyến tiên tiến, chuyên cung cấp dịch vụ đặt phòng và thuê nhà cho khách du lịch trên toàn thế giới. Với giao diện thân thiện và dễ sử dụng, người dùng có thể dễ dàng tìm kiếm và lựa chọn các loại hình lưu trú từ căn hộ, biệt thự đến nhà nghỉ và homestay. Booking Iqra Beach nổi bật với hệ thống đánh giá minh bạch, giúp người dùng có được cái nhìn khách quan và chính xác về chất lượng dịch vụ. Ngoài ra, trang web còn cung cấp nhiều ưu đãi hấp dẫn và dịch vụ hỗ trợ khách hàng 24/7, đảm bảo mang đến cho người dùng những trải nghiệm du lịch tuyệt vời và đáng nhớ.
+                                <p style={{ color: 'black' }} >Chúng tôi rất vui khi được mang đến trải nghiệm tốt nhất cho bạn!</p>
                             </h6>
                             <button className='btn btnLearnMore'>
                                 Xem Thêm
@@ -83,8 +92,113 @@ const Header = () => {
 
                     </div>
                 </div>
-                <div className='TOP3' style={{ marginTop:10, color:'black', fontWeight:'bold'}}>
-                    <h5>TOP 3 KHÁCH SẠN HÀNG ĐẦU
+                <div className='TOP3' style={{ marginTop: 10, color: 'black', fontWeight: 'bold', marginBottom:20, }}>
+                    <h5>CÁC HẠNG PHÒNG TÙY CHỌN
+
+                    </h5>
+                </div>
+                <div>
+                    <div className='containerBed'>
+                        <div className='column0 '>
+                            <img src='../asset1/images/phongdoi.jpg' style={{ width: '100%', height: 300, }} />
+                            <h3 style={{ color: '' }}>
+                                DOUPLE ROOM
+                            </h3>
+                            <div >
+                                <h5 style={{ marginLeft: 50, marginTop: 10, }}>
+
+                                    <span style={{ marginRight: 10, }}>
+                                        <FontAwesomeIcon icon={faPerson} />
+                                        2 khách
+                                    </span>
+
+                                    <span style={{}}>
+                                        <FontAwesomeIcon icon={faHouse} />
+                                        20m2
+                                    </span>
+                                    <p style={{ marginTop: 20, color: 'black' }}>
+                                        Mang đến trải nghiệm tốt nhất cho bạn, nơi thư giản cho các cặp đôi muốn tìm không gian riêng tư nhưng vẫn mới lạ và thoải mái.
+                                    </p>
+
+                                </h5>
+                                <button
+                                    style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, }} // Inline styling
+                                    className='btn-booking'>
+
+
+                                    <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
+                                        Đặt Ngay ...
+                                    </Link>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        {/* /********************************************************** */ }
+                        <div className='column rowbed'>
+                            <div className=' column1 '>
+                                <div className='rooms' >
+                                    <p style={{ color:'white', marginLeft:40,}}>LUXURY ROOM</p>
+                                    <button
+                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
+                                        className='btn-booking'>
+
+
+                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
+                                            Đặt Ngay ...
+                                        </Link>
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div className='column2'>
+                                <div className='rooms'>
+                                    <p style={{ color: 'white', marginLeft: 40, }}>FAMILY ROOM</p>
+                                    <button
+                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
+                                        className='btn-booking'>
+
+
+                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
+                                            Đặt Ngay ...
+                                        </Link>
+                                    </button>
+
+                                </div>                          </div>
+                            <div className='column3'>
+
+                                <div className='rooms' >
+                                    <p style={{ color: 'white', marginLeft: 40, }} >SMALL ROOM</p>
+                                    <button
+                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
+                                        className='btn-booking'>
+
+
+                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
+                                            Đặt Ngay ...
+                                        </Link>
+                                    </button>
+
+                                </div>                        </div>
+                            <div className='column4'>
+                                <div className='rooms' >
+                                    <p style={{ color: 'white', marginLeft: 40, }}>APARMENT ROOM</p>                                    <button
+                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
+                                        className='btn-booking'>
+
+
+                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
+                                            Đặt Ngay ...
+                                        </Link>
+                                    </button>
+
+                                </div>                       </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div className='TOP3' style={{ marginTop: 10, color: 'black', fontWeight: 'bold' }}>
+                    <h5>TOP KHÁCH SẠN YÊU THÍCH
                     </h5>
                 </div>
                 <div className='row room'>
@@ -121,7 +235,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div>
-                    <HotelFilter/>
+                    <HotelFilter />
                 </div>
             </div>
 

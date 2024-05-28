@@ -1,13 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faMapMarkerAlt, faBars, faCalendarDays, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faMapMarkerAlt, faUser, faCalendarDays, faHeart, faUnlock } from '@fortawesome/free-solid-svg-icons';
 import { CgEnter } from 'react-icons/cg';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
+   
     return (
         <div className='Container-header'>
+
             <div className='headertop'>
+
                 <div className="row">
+
                     <div className="column">
                         <div className='row phone'>
                             <div className="topleft" style={{ marginRight: 25 }}>
@@ -23,15 +29,28 @@ const Header = () => {
                     <div className="column">
                         <div className="row" style={{ textAlign: 'right', justifyContent: 'center', }}>
                             <div className="topright ">
-                                <FontAwesomeIcon icon={faBars} />
-                                <span >Ngôn Ngữ</span>
+                                <FontAwesomeIcon icon={faUser} />
+                                <span style={{ marginRight: 40, marginLeft: 5 }}>
+                                    <a href='#' className='log'>
+                                        ĐĂNG KÝ
+                                    </a>
+                                </span>
+                                <FontAwesomeIcon icon={faUnlock} />
+                                <span style={{ marginLeft: 5 }}>
+                                    <a href='#' className='log'>
+                                        ĐĂNG NHẬP
+                                    </a>
+                                </span>
 
                             </div>
                             <button
                                 style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: -10, }} // Inline styling
                                 className='btn-booking'>
-                                Đặt Ngay ...
-                                <FontAwesomeIcon icon={faCalendarDays} />
+
+
+                                <Link to="/book" style={{ color: 'white' }}>
+                                    Đặt Ngay ...<FontAwesomeIcon icon={faCalendarDays} />
+                                </Link>
                             </button>
                         </div>
                     </div>
@@ -42,23 +61,23 @@ const Header = () => {
 
 
             <div className="headerLogo">
-
+                <div class="content-wrapper">
+                    <img class="blinking-image" src="../asset1/images/logo.jpg" />
+                </div>
                 <div class="grid-container">
                     <div class="grid-item">
-                        <div class="content-wrapper">
-                            <img src="../asset1/images/logo.jpg" />
-                            <span class="blinking-text">BAO PHÊ PHA</span>
-                        </div>
+                        <button id="homeButton" onClick={()=>{navigate('/')}}>
+                            TRANG CHỦ
+                        </button>
                     </div>
+
                     <div class="grid-item"  >
-                        <a><FontAwesomeIcon icon={faStar} /></a>
-                        <p> YÊU THÍCH</p>
+                        <a href='#' > YÊU THÍCH</a>
                     </div>
-                    <div class="grid-item">ƯU ĐÃI</div>
-                    <div class="grid-item">DỊCH VỤ</div>
-                    <div class="grid-item">PHÒNG</div>
-                    <div class="grid-item">TIỆN ÍCH</div>
-                    <div class="grid-item">LIÊN HỆ</div>
+
+                    <div class="grid-item"><Link to='/Services'>TIỆN ÍCH</Link></div>
+                    <div class="grid-item"><Link to='/Rooms'>PHÒNG</Link></div>
+                    <div class="grid-item"><a href='#'>LIÊN HỆ</a></div>
                 </div>
 
             </div>

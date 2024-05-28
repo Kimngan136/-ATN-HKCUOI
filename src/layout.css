@@ -53,11 +53,19 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 3fr repeat(6, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     /* Chia hàng thành 7 cột bằng nhau */
     gap: 10px;
     /* Khoảng cách giữa các cột */
+    padding-left: 350px;
+    padding-right: 350px;
 
+    font-weight: bold;
+}
+
+.blinking-image {
+    width: 200px;
+    height: 160px;
 }
 
 .content-wrapper,
@@ -70,44 +78,40 @@
     /* Chỉnh nội dung ngang vào giữa */
     text-align: center;
     /* Chỉnh văn bản vào giữa */
-}
-
-.grid-item img {
-    width: auto;
-    height: 100px;
 
 }
 
-@keyframes colorChange {
-    0% {
-        color: red;
-    }
 
-    50% {
-        color: blue;
-    }
-
-    75% {
-        color: yellow;
-    }
-
-    100% {
-        color: red;
-    }
+.log {
+    font-weight: bold;
+    color: white;
 }
 
-.blinking-text {
-    font-weight: 1000;
-    animation: colorChange 1s linear infinite;
+.log:hover {
+    color: red;
 }
 
-/* BODY CONTAINER****************************************************************** */
+/* *************************************************************  BODY CONTAINER****************************************************************** */
 .Onlet-body {
     background-image: url("../public/asset1/images/hotel.jpg");
+    background-size: cover;
+    background-position: center;
     height: 400px;
-    /* background-size: cover; */
+    position: relative;
+    /* Đảm bảo phần tử là relative để có thể định vị được phần nền mờ */
 }
 
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(90px);
+    /* Áp dụng hiệu ứng làm mờ */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Màu nền với độ trong suốt */
+}
 
 .List {
     display: flex;
@@ -115,23 +119,28 @@
     text-align: center;
     padding: 30px;
     height: 170px;
-        background-color: rgb(57, 56, 56);
+    top: 100px;
+    padding-bottom: 55px;
 
+}
 
+.onlet-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  
 }
 
 .col-sm-2 {
     /* border: 5px solid white; */
     background-color: white;
     margin-right: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 
 
 }
 
-.TfLIST {
-    background-color: rgb(57, 56, 56);
-}
 
 .btn-check {
     position: relative;
@@ -216,6 +225,72 @@
     justify-self: center;
 }
 
+.containerBed {
+    margin: 70px;
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-gap: 5px;
+}
+
+.rowbed {
+
+    text-align: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 350px 350px;
+    grid-template-rows: 250px 250px;
+    grid-gap: 10px;
+
+
+}
+
+.column0 {
+    border: 1px solid #ccc;
+}
+
+.column1 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/luxury.jpg");
+}
+
+.column2 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/giadinh.jpg");
+}
+
+.column3 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/phongdon.jpg");
+}
+
+.column4 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/apatment.jpg");
+}
+
+.column5 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/apatment.jpg");
+}
+
+.rooms {
+
+    display: flex;
+    margin-top: 190px;
+
+}
+
 /*********************************************     FOOTER CSS   *********************************************************************************************************************/
 /* styles.css */
 .footer {
@@ -267,9 +342,14 @@
     margin-right: 10px;
 }
 
+a {
+    color: black;
+}
+
 .social-icons li:last-child {
     margin-right: 0;
 }
+
 /***********************************************************************        FILTER       *************************************************************/
 .hotel-filter {
     padding: 20px;
@@ -357,34 +437,274 @@
 .hotel-list li span {
     display: block;
 }
+
 .clear-button {
     background-color: #f44336;
-  
+
     border: none;
-        color: white;
-  
+    color: white;
+
     padding: 10px 20px;
-   
+
     text-align: center;
     text-decoration: none;
-  
+
     display: inline-block;
-    
+
     font-size: 16px;
 
     margin: 4px 2px;
-  
+
     cursor: pointer;
-   
+
     border-radius: 12px;
-    
+
     transition: background-color 0.3s ease;
-   
+
 }
 
 .clear-button:hover {
     background-color: #d32f2f;
-    
-} 
+
+}
+
+/*********************************************  NÚT ĐẶT PHÒNG *****************************************************************/
 
 
+.container-BookingNow {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.container-BookingNow h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.container-BookingNow label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+.container-BookingNow input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container-BookingNow button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.container-BookingNow button:hover {
+    background-color: #218838;
+}
+
+#result {
+    margin-top: 20px;
+    color: #28a745;
+}
+
+/*/****************************************************   SERVIC     *****************************************************************************************/
+.containerServic {
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 300px 300px 300px;
+    grid-gap: 5px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.item1 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/phuongtien1.jpg");
+}
+
+.item5 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/map.jpg");
+}
+
+.item7 {
+    background-color: #5c4e3d;
+    top: -120px;
+    color: white;
+
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+    align-items: center;
+    font-size: 30px;
+
+}
+
+.item10 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/dailywalk.jpg");
+    color: black;
+    bottom: 120px;
+    font-weight: bold;
+}
+
+.item3 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/relaxzone.jpg");
+    color: black;
+
+    font-size: 30px;
+    height: 450px;
+
+}
+
+.btn-thue {
+    background-color: #4CAF50;
+    /* Màu nền */
+    color: white;
+    /* Màu chữ */
+    padding: 10px 20px;
+    /* Kích thước lề */
+    font-size: 16px;
+    /* Kích thước chữ */
+    border: none;
+    /* Không viền */
+    border-radius: 5px;
+    /* Bo tròn góc */
+    cursor: pointer;
+    /* Con trỏ khi di chuột */
+}
+
+.btn-thue:hover {
+    background-color: #45a049;
+    /* Màu nền khi di chuột qua */
+}
+
+.btn-thue:active {
+    background-color: #367c39;
+    /* Màu nền khi nhấn */
+}
+
+.rental-container {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.rental-container h3 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.rental-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+}
+
+.rental-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/**********************************                         ROOMS                  **************************************************************************************/
+.vango {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/go.jpg");
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+
+}
+
+.containerRooms {
+    display: flex;
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+    align-items: center;
+    /* căn giữa theo chiều dọc */
+    height: 100vh;
+    /* Đảm bảo phần tử lấp đầy toàn bộ chiều cao của viewport */
+}
+
+.row {
+    width: 100%;
+    /* Đảm bảo hàng ngang căn giữa trong phần tử containerRooms */
+    display: flex;
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+}
+
+.col-2,
+.col-6 {
+    text-align: center;
+    /* căn giữa nội dung trong cột */
+}
+
+.containerRoom {
+
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+    align-items: center;
+    /* căn giữa theo chiều dọc */
+
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px;
+    grid-gap: 50px;
+    /* cho phép các phần tử con xuống dòng khi không đủ không gian */
+}
+
+.item {
+
+    background-color: lightblue;
+    grid-gap: 50px;
+    /* Tạo khoảng cách giữa các phần tử */
+    display: grid;
+    justify-content: center;
+    /* căn giữa theo chiều ngang */
+    align-items: center;
+    /* căn giữa theo chiều dọc */
+}
+
+.room1 {
+    background-size: cover;
+    /* Hiển thị hình nền sao cho che kín khung */
+    background-position: center;
+    background-image: url("../public/asset1/images/relaxzone.jpg");
+    margin-top: 50px;
+    height: 300px;
+    width: 350px;
+
+}
