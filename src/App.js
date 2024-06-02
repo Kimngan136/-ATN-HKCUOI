@@ -6,6 +6,9 @@ import Layout from './layout';
 import Booking from './user/Book';
 import Services from './user/Services';
 import Rooms from './user/Rooms';
+import Login from './user/Login';
+import Register from './user/Register';
+import HotelFilter from './user/HotelFilter';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -32,6 +35,10 @@ function App() {
                     <Route path="/book" element={<Booking />}></Route>
                     <Route path="/Services" element={<Services />}></Route>
                     <Route path="/Rooms" element={<Rooms />}></Route>
+                    <Route path="/Login" element={<Login />}></Route>
+                    <Route path="/Register" element={<Register />}></Route>
+                    <Route path="/HotelFilter" element={<HotelFilter />}></Route>
+
 
                 </Routes>
             </BrowserRouter >
