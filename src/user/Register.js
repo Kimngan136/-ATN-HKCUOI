@@ -1,36 +1,35 @@
 import React from 'react';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Button, Input, Space } from 'antd';
+
 const Register = () => {
+    const [passwordVisible, setPasswordVisible] = React.useState(false);
 
     return (
         <div class="bg-img" >
             <div class="content" style={{ height: 690 }}>
                 <header>Đăng Ký</header>
+                
                 <form action="">
-                    
-                    <div class="field">
-                        <span class="fa fa-user"></span>
-                        <input type="text" required placeholder="Tên đăng ký" />
-                    </div>
-                    <div class="field space">
-                        <span class="fa fa-lock"></span>
-                        <input type="number" class="pass-key" required placeholder="Số điện thoại" />
-                    
-                    </div>
-                    <div class="field space">
-                        <span class="fa fa-lock"></span>
-                        <input type="email" class="pass-key" required placeholder="Email" />
-                        
-                    </div>
-                    <div class="field space">
-                        <span class="fa fa-lock"></span>
-                        <input type="password" class="pass-key" required placeholder="Mật khẩu" />
-                        
-                    </div>
-                    <div class="field space">
-                        <span class="fa fa-lock"></span>
-                        <input type="password" class="pass-key" required placeholder="Nhập lại mật khẩu" />
-                       
-                    </div>
+                    <Input className='inputR' placeholder="Tên đăng ký" />
+                    <Input className='inputR' placeholder="Số điện thoại" />
+                    <Input className='inputR'  placeholder="Email" />
+
+                    <Space direction="vertical">
+                        <Input.Password
+                            className=' '
+                            placeholder="Nhập mật khẩu"
+                            iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                        <Space direction="horizontal">
+                            <Input.Password
+                                className='inputRpass'
+                                placeholder="Nhập lạimật khẩu"
+                                visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
+                            />
+                            
+                        </Space>
+                    </Space>
                    
                     
                     <div class='pass'>

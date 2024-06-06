@@ -1,18 +1,29 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faPerson, faHouse } from '@fortawesome/free-solid-svg-icons';
-import HotelFilter from './HotelFilter';
-import { Divider } from 'antd';
+import { InputNumber } from 'antd';
 import { Link } from 'react-router-dom';
+import { DatePicker, Space } from 'antd';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
+const { RangePicker } = DatePicker;
+const dateFormat = 'YYYY/MM/DD';
+const weekFormat = 'MM/DD';
+const monthFormat = 'YYYY/MM';
+
+
 
 
 const Header = () => {
-    const validateInput = (input) => {
-        if (input.value < 1) {
-            input.value = 1;
-        } else if (input.value > 6) {
-            input.value = 6;
-        }
+    const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY'];
+    const customFormat = (value) => `custom format: ${value.format(dateFormat)}`;
+    const customWeekStartEndFormat = (value) =>
+        `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
+            .endOf('week')
+            .format(weekFormat)}`;
+    const onChange = (value) => {
+        console.log('changed', value);
     };
     return (
         <div className='Container-Onlet'>
@@ -35,18 +46,20 @@ const Header = () => {
                     <div className='containerSearch'>
                         <div >
                             <label> Địa Điểm</label>
-                            <input type="text" required placeholder="Bạn muốn đến đâu?" ></input>
+                            <input style={{marginLeft:34,}} type="text" required placeholder="Bạn muốn đến đâu?" ></input>
 
                         </div>
-                        <div>Ngày đến
-                            <input type="date" class="form-control" id="checkIn"></input>
-                        </div>
-                        <div>Ngày đi
-                            <input type="date" class="form-control" id="checkIn"></input>
+                        <div style={{ marginTop: 16 }}>
+                            <Space direction="vertical" size={12}>
+                                <RangePicker
+                                    defaultValue={[dayjs('2015/01/01', dateFormat), dayjs('2015/01/01', dateFormat)]}
+                                    format={dateFormat}
+                                />
+                            </Space>
                         </div>
                         <div >Số khách
-                            <input type="number" class="form-control" id="quantity" placeholder="Số lượng" min="1" max="6" oninput="validateInput(this)" />
-                        </div>
+
+                            <InputNumber min={1} max={6} defaultValue={2} onChange={onChange} />                        </div>
                         <div className="icon-container">
                             <Link to='/HotelFilter'><i style={{ color: 'white' }} className="fa-solid fa-magnifying-glass"></i></Link>
                         </div>
@@ -69,7 +82,7 @@ const Header = () => {
                                 <br />
                                 <br />
                             </h4>
-                            <h6 style={{ color: 'black', lineHeight: 2, }}>
+                            <h6 style={{ color: 'black', lineHeight: 2, marginLeft: 30, }}>
                                 Trang web Booking CASA là một nền tảng trực tuyến tiên tiến, chuyên cung cấp dịch vụ đặt phòng và thuê nhà cho khách du lịch trên toàn thế giới. Với giao diện thân thiện và dễ sử dụng, người dùng có thể dễ dàng tìm kiếm và lựa chọn các loại hình lưu trú từ căn hộ, biệt thự đến nhà nghỉ và homestay. CASA Booking nổi bật với hệ thống đánh giá minh bạch, giúp người dùng có được cái nhìn khách quan và chính xác về chất lượng dịch vụ. Ngoài ra, trang web còn cung cấp nhiều ưu đãi hấp dẫn và dịch vụ hỗ trợ khách hàng 24/7, đảm bảo mang đến cho người dùng những trải nghiệm du lịch tuyệt vời và đáng nhớ.
                                 <p style={{ color: 'black', lineHeight: 4, }} >Chúng tôi rất vui khi được mang đến trải nghiệm tốt nhất cho bạn!</p>
                             </h6>
@@ -93,8 +106,8 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='TOP3' style={{ marginTop: 40, color: 'black', fontWeight: 'bold' }}>
-                    <h5>
-                        <Link to='#'>ĐANG THỊNH HÀNH <i style={{ color: 'red', marginBottom: 30, }} class="fa-solid fa-fire"></i>
+                    <h5 style={{ marginLeft: 30, }}>
+                        <Link to='/Details'>ĐANG THỊNH HÀNH <i style={{ color: 'red', marginBottom: 30, }} class="fa-solid fa-fire"></i>
                         </Link>
                     </h5>
                     <div class="containerTrend">
@@ -206,7 +219,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='TOP3' style={{ marginTop: 60, color: 'black', fontWeight: 'bold', marginBottom: 20, }}>
-                    <h5 style={{ marginBottom: 30, }}>CÁC HẠNG PHÒNG TÙY CHỌN</h5>
+                    <h5 style={{ marginBottom: 30, marginLeft: 30, }}>CÁC HẠNG PHÒNG TÙY CHỌN</h5>
                     <div className='containerBed'>
                         <div className='column0 '>
                             <img src='../asset1/images/phongdoi.jpg' style={{ width: '100%', height: 300, }} />
@@ -308,7 +321,7 @@ const Header = () => {
 
                 </div>
                 <div className='TOP3' style={{ marginTop: 10, color: 'black', fontWeight: 'bold', marginBottom: 40, }}>
-                    <h5><Link to='/Login'>ĐÃ QUAN TÂM GẦN ĐÂY</Link>
+                    <h5 style={{ marginLeft: 30, }}><Link to='/Login'>ĐÃ QUAN TÂM GẦN ĐÂY</Link>
                     </h5>
                 </div>
                 <div className='room'>

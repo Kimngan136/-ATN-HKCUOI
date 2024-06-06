@@ -2,7 +2,52 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
+import { DatePicker, Space } from 'antd';
+import { Flex, Rate } from 'antd';
+import { Checkbox } from 'antd';
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
+
+
+
+
+
+const onChangee = (checkedValues) => {
+    console.log('checked = ', checkedValues);
+};
+const plainOptions = ['Apple', 'Pear', 'Orange'];
+const options = [
+    {
+        label: 'Apple',
+        value: 'Apple',
+    },
+    {
+        label: 'Pear',
+        value: 'Pear',
+    },
+    {
+        label: 'Orange',
+        value: 'Orange',
+    },
+];
+const optionsWithDisabled = [
+    {
+        label: 'Apple',
+        value: 'Apple',
+    },
+    {
+        label: 'Pear',
+        value: 'Pear',
+    },
+    {
+        label: 'Orange',
+        value: 'Orange',
+        disabled: false,
+    },
+];
+const onChange = (date, dateString) => {
+    console.log(date, dateString);
+};
 const hotels = [
     { id: 1, name: 'Hotel A', price: 100, reviews: 50, stars: 3, distance: 5, amenities: ['Phương Tiện', 'Hồ Bơi'] },
     { id: 2, name: 'Hotel B', price: 200, reviews: 30, stars: 4, distance: 10, amenities: ['Ban Công', 'view'] },
@@ -14,7 +59,7 @@ const HotelFilter = () => {
     const [DateCheckOut, setDateCheckOut] = useState('');
     const [DateCheckIn, setDateCheckIn] = useState('');
     const [totalNights, setTotalNights] = useState(0);
-    
+
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const [minReviews, setMinReviews] = useState('');
@@ -32,16 +77,6 @@ const HotelFilter = () => {
 
     const handleMinPriceChange = (event) => setMinPrice(event.target.value);
     const handleMaxPriceChange = (event) => setMaxPrice(event.target.value);
-    const handleMinReviewsChange = (event) => setMinReviews(event.target.value);
-    const handleDistanceChange = (event) => setDistance(event.target.value);
-    const handleSortByAscendingChange = () => {
-        setSortByPriceAscending(!sortByPriceAscending);
-        setSortByPriceDescending(false); // Ensure only one checkbox is checked
-    };
-    const handleSortByDescendingChange = () => {
-        setSortByPriceDescending(!sortByPriceDescending);
-        setSortByPriceAscending(false); // Ensure only one checkbox is checked
-    };
 
     const handleAmenitiesChange = (event) => {
         const { name, checked } = event.target;
@@ -91,27 +126,10 @@ const HotelFilter = () => {
         setSortByPriceAscending(false);
         setSortByPriceDescending(false);
         setDistance('');
-        setAmenities({
-            transport: false,
-            pool: false,
-            balcony: false,
-            view: false,
-        });
         setFilteredHotels([]);
         swal("Cleared", "Filters have been cleared.", "success");
     };
 
-/**code lấy ngày check in check out VÀ TÍNH TỔNG ĐÊM */
-
-    const handleDateChange = (event) => {
-        setDateCheckIn(event.target.value);
-
-    };
-
-
-    const handleCheckOutChange = (event) => {
-        setDateCheckOut(event.target.value);
-    };
 
     const calculateNights = () => {
         if (DateCheckIn && DateCheckOut) {
@@ -132,16 +150,52 @@ const HotelFilter = () => {
         }
     };
 
-
+    const [start, setStart] = useState(3);
     return (
         <div className="container-filter">
             <div className="hotel-filter">
 
-                <h2>Filter Hotels</h2>
-                <div className='where'>
-                   
+                <div style={{ backgroundColor: 'orange' }}>
+
+                    <h2>Filter Hotels</h2>
+                    <div style={{ marginLeft: 10, width: 360, }}>
+
                         <div className="input-group">
                             <label htmlFor="minPrice">Khu Vực: </label>
+                            <input
+                                type="number"
+                               
+                            />
+                        </div>
+                        <div className="input-group">
+                            <label htmlFor="DateCheckIn">Ngày Nhận Phòng: </label>
+                            <Space direction="vertical">
+                                <DatePicker onChange={onChange} />
+
+                            </Space>
+                        </div>
+                        <div className="input-group">
+                            <label htmlFor="DateCheckOut">Ngày Trả Phòng: </label>
+                            <Space direction="vertical">
+                                <DatePicker onChange={onChange} />
+
+                            </Space>
+                        </div>
+                        <button className="btn-calculate" onClick={calculateNights}>Tìm</button>
+                        {totalNights !== null && <label className="total-nights-label">Tổng: {totalNights} Đêm</label>}
+
+                    </div>
+                </div>
+
+
+
+
+                <label className='liner' >--------------------------------------------------------------------------------------------------------</label>
+                <div >
+                    <h5 style={{ marginBottom: 20, color: 'black' }}>TÌM KIẾM NÂNG CAO</h5>
+                    <div className="filter-inputs">
+                        <div className="input-group">
+                            <label htmlFor="minPrice">Giá từ: </label>
                             <input
                                 type="number"
                                 id="minPrice"
@@ -150,137 +204,88 @@ const HotelFilter = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="DateCheckIn">Ngày Nhận Phòng: </label>
+                            <label htmlFor="maxPrice">Đến: </label>
                             <input
-                                type="date"
-                                id="DateCheckIn"
-                                value={DateCheckIn}
-                                onChange={handleDateChange}
+                                type="number"
+                                id="maxPrice"
+                                value={maxPrice}
+                                onChange={handleMaxPriceChange}
                             />
                         </div>
+                        <label className='liner' >--------------------------------------------------------------------------------------------------------</label>
+                        <label htmlFor="minReviews">Chọn dịch vụ bao quát của khách sạn của bạn:  </label>
+
                         <div className="input-group">
-                            <label htmlFor="DateCheckOut">Ngày Trả Phòng: </label>
-                            <input
-                                type="date"
-                                id="DateCheckOut"
-                                value={DateCheckOut}
-                                onChange={handleCheckOutChange}
-                            />
+
+                            <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+                            <br />
+                            <br />
+                            <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
+                            <br />
+                            <br />
+                           
                         </div>
-                        <button className="btn-calculate" onClick={calculateNights}>Tìm</button>
-                        {totalNights !== null && <label className="total-nights-label">Tổng: {totalNights} Đêm</label>}
-                    
-                </div>
+                        <label className='liner' >--------------------------------------------------------------------------------------------------------</label>
+                        <label htmlFor="minReviews">Cho chúng tôi biết khoảng cách của khách sạn bạn:   </label>
+
+                        <div className="input-group">
+                            <label htmlFor="maxPrice">Đến sân bay: </label>
+                            <input className='input-Go' required placeholder="Tên sân bay" type="text" />
+
+                            <label htmlFor="maxPrice">Đến bãi biển: </label>
+                            <input className='input-Go' required placeholder="Tên bãi biển" type="text" />
+
+                            <label htmlFor="maxPrice">Đến trung tâm thành phố: </label>
+                            <input className='input-Go' required placeholder="Tên thành phố" type="text" />
+
+                            <label htmlFor="maxPrice">Giá thấp nhất 1 đêm của bạn là bao nhiêu? </label>
+                            <input className='input-Go' required placeholder="Giá tiền" type="number" />
+
+                        </div>
+                        <label className='liner'>--------------------------------------------------------------------------------------------------------</label>
+
+                        <label>RATING</label>
+                        <Flex gap="middle" vertical>
+                            <Rate tooltips={desc} onChange={setStart} value={start} />
+                            {start ? <span>{desc[start - 1]}</span> : null}
+                        </Flex>
 
 
-
-
-
-                <div className="filter-inputs">
-                    <div className="input-group">
-                        <label htmlFor="minPrice">Giá thấp nhất: </label>
-                        <input
-                            type="number"
-                            id="minPrice"
-                            value={minPrice}
-                            onChange={handleMinPriceChange}
-                        />
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="maxPrice">Giá cao nhất: </label>
-                        <input
-                            type="number"
-                            id="maxPrice"
-                            value={maxPrice}
-                            onChange={handleMaxPriceChange}
-                        />
+                    <div className="button-group">
+                        <button className="filter-button" onClick={handleFilter}>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </button>
+                        <button className="clear-button" onClick={handleClear}>
+                            Clear
+                        </button>
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="minReviews">Lượng Review: </label>
-                        <input
-                            type="number"
-                            id="minReviews"
-                            value={minReviews}
-                            onChange={handleMinReviewsChange}
-                        />
-                    </div>
-                    <div className="input-group">
-                        <label>Đánh giá khách sạn: </label>
-                        {[1, 2, 3, 4, 5].map(star => (
-                            <label key={star}>
-                                <input
-                                    type="checkbox"
-                                    value={star}
-                                    checked={selectedStars.includes(star)}
-                                    onChange={handleStarChange}
-                                />
-                                {star} Star{star > 1 && 's'}
-                            </label>
+                    <h3>Kết Quả:</h3>
+                    <ul className="hotel-list">
+                        {filteredHotels.map(hotel => (
+                            <li key={hotel.id}>
+                                {hotel.name} - ${hotel.price} - {hotel.stars} Star{hotel.stars > 1 && 's'} - Reviews: {hotel.reviews} - Distance: {hotel.distance}km - Amenities: {hotel.amenities.join(', ')}
+                            </li>
                         ))}
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="distance">Khoản cách (km): </label>
-                        <input
-                            type="number"
-                            id="distance"
-                            value={distance}
-                            onChange={handleDistanceChange}
-                        />
-                    </div>
-                    <div className="input-group">
-                        <label>Tiện ích: </label>
-                        {['transport', 'pool', 'balcony', 'view'].map(amenity => (
-                            <label key={amenity}>
-                                <input
-                                    type="checkbox"
-                                    name={amenity}
-                                    checked={amenities[amenity]}
-                                    onChange={handleAmenitiesChange}
-                                />
-                                {amenity.charAt(0).toUpperCase() + amenity.slice(1)}
-                            </label>
-                        ))}
-                    </div>
-                    {/* /**hgfjhgf */}
-                    <div className="input-group">
-                        <label htmlFor="sortByPriceAscending">Xếp theo giá (Tăng dần): </label>
-                        <input
-                            type="checkbox"
-                            id="sortByPriceAscending"
-                            checked={sortByPriceAscending}
-                            onChange={handleSortByAscendingChange}
-                        />
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="sortByPriceDescending">Xếp theo giá (Giảm dần): </label>
-                        <input
-                            type="checkbox"
-                            id="sortByPriceDescending"
-                            checked={sortByPriceDescending}
-                            onChange={handleSortByDescendingChange}
-                        />
-                    </div>
-                    <button className="filter-button" onClick={handleFilter}>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </button>
+                    </ul>
                 </div>
-                <div className="button-group">
-                    <button className="clear-button" onClick={handleClear}>
-                        Clear
-                    </button>
-                </div>
-                <h3>Kết Quả:</h3>
-                <ul className="hotel-list">
-                    {filteredHotels.map(hotel => (
-                        <li key={hotel.id}>
-                            {hotel.name} - ${hotel.price} - {hotel.stars} Star{hotel.stars > 1 && 's'} - Reviews: {hotel.reviews} - Distance: {hotel.distance}km - Amenities: {hotel.amenities.join(', ')}
-                        </li>
-                    ))}
-                </ul>
             </div>
+
+
+
+
+
+
+
+
+
+
+
             <div className="listFilter">
-                <div style={{margin:7,}} >
-                    <img style={{ height:300, }}  src='../asset1/images/ks1.jpg' />
+
+                <div style={{ margin: 7, }} >
+
+                    <img style={{ height: 300, }} src='../asset1/images/ks1.jpg' />
                 </div>
                 <div className=''>
 
@@ -293,7 +298,7 @@ const HotelFilter = () => {
                         <i class="fas fa-star"></i>
                     </div>
                     <div>
-                        <span style={{backgroundColor:'yellow'}}>
+                        <span style={{ backgroundColor: 'yellow' }}>
                             <i class="fa-regular fa-thumbs-up"></i>
                             <i class="fa-regular fa-star"></i>
                         </span>
@@ -325,6 +330,7 @@ const HotelFilter = () => {
                     </div>
 
                 </div>
+
             </div>
         </div>
     );

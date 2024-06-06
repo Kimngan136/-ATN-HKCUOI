@@ -9,6 +9,8 @@ import Rooms from './user/Rooms';
 import Login from './user/Login';
 import Register from './user/Register';
 import HotelFilter from './user/HotelFilter';
+import Details from './user/Details';
+import Bookingnow from './user/Bookingnow';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -38,6 +40,8 @@ function App() {
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Register" element={<Register />}></Route>
                     <Route path="/HotelFilter" element={<HotelFilter />}></Route>
+                    <Route path="/Details" element={<Details />}></Route>
+                    <Route path="/Bookingnow" element={<Bookingnow />}></Route>
 
 
                 </Routes>
