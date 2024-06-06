@@ -1008,7 +1008,7 @@ i span {
 
 .row {
     margin: 0;
-    border: 1px solid #ddd;
+
 }
 
 .col {
@@ -1058,6 +1058,26 @@ i span {
     border-radius: 8px;
 }
 
+.containerdetails {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    border: 1px solid #007bff;
+    border-radius: 35px;
+    justify-content: center;
+    text-align: center;
+    height: 65px;
+    top: 100px;
+    margin: 0px;
+    background-color: white;
+    width: 750px;
+    margin-top: 50px;
+}
+
+.loai-phong {
+    margin-left: 19px;
+}
+
 /************************     TRANG BOOKING NOW CSS    *************************************************************************/
 .body-booking {
     background-size: cover;
@@ -1100,8 +1120,158 @@ i span {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+
 .booking4 {
     display: grid;
-    grid-template-columns:  1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
 }
+
+/******************************     THANH TOÁN CSS     ******************************************/
+.Payments {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 60px 230px;
+}
+
+.momo,
+.vnpay {
+    background-size: cover;
+    background-position: center;
+    background-image: url("../public/asset1/images/momo.png");
+    height: 100px;
+    width: 150px;
+}
+
+.vnpay {
+    background-size: cover;
+    background-position: center;
+    background-image: url("../public/asset1/images/vnpay.png");
+    
+    width: 290px;
+}
+ .btn-payment {
+     background-color: #007bff;
+     /* Green background */
+     border: none;
+     /* Remove borders */
+     color: white;
+     /* White text */
+     padding: 15px 32px;
+     /* Add some padding */
+     text-align: center;
+     /* Center the text */
+     text-decoration: none;
+     /* Remove underline */
+     display: inline-block;
+     /* Make the button inline */
+     font-size: 16px;
+     /* Increase font size */
+     margin: 10px 2px;
+     /* Add some margin */
+     cursor: pointer;
+     /* Add a pointer cursor on hover */
+     border-radius: 8px;
+     /* Rounded corners */
+     transition: background-color 0.3s;
+     /* Smooth transition for hover effect */
+ }
+
+ .btn-payment:hover {
+     background-color: #0d529c;
+     /* Darker green on hover */
+ }
+
+ .containerpay {
+     width: 80%;
+     max-width: 1000px;
+     margin: 0 auto;
+     padding: 20px;
+ }
+
+ .header {
+     background-color: #fff;
+     padding: 10px;
+     border-bottom: 1px solid #ddd;
+ }
+
+ .header .title {
+     font-size: 1.5em;
+     font-weight: bold;
+ }
+
+ .content {
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 5px;
+     margin-bottom: 20px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+
+ .info {
+     font-size: 20px;
+     font-weight: bold;
+     margin-bottom: 10px;
+ }
+
+ .details {
+     margin-bottom: 20px;
+ }
+
+ .details .label {
+     font-weight: bold;
+ }
+
+ .details .value {
+     margin-left: 10px;
+ }
+
+ .footerpay {
+     background-color: #fff;
+     padding: 10px;
+     border-top: 1px solid #ddd;
+ }
+
+ .footerpay .total {
+     font-size: 1.5em;
+     font-weight: bold;
+     margin-bottom: 10px;
+ }
+
+ .footerpay .buttongui {
+     background-color: #007bff;
+     color: #fff;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .footerpay .buttongui:hover {
+     background-color: #0062cc;
+ }
+
+ .vnpa-logo {
+     display: block;
+     margin: 0 auto;
+     width: 100px;
+     height: auto;
+     margin-bottom: 20px;
+ }
+ .value {
+     padding: 20px;
+     border: 1px solid #ccc;
+     border-radius: 8px;
+     background-color: #f9f9f9;
+ }
+
+ .value div {
+     margin-bottom: 10px;
+     font-size: 16px;
+     color: #333;
+ }
+
+ .value div:last-child {
+     margin-bottom: 0;
+ }

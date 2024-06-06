@@ -49,7 +49,7 @@ const Header = () => {
                             <input style={{marginLeft:34,}} type="text" required placeholder="Bạn muốn đến đâu?" ></input>
 
                         </div>
-                        <div style={{ marginTop: 16 }}>
+                        <div style={{ marginTop: 23, }}>
                             <Space direction="vertical" size={12}>
                                 <RangePicker
                                     defaultValue={[dayjs('2015/01/01', dateFormat), dayjs('2015/01/01', dateFormat)]}

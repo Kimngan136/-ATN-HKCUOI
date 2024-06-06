@@ -3,7 +3,20 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faPerson, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { Checkbox, Flex, Input, InputNumber } from 'antd';
+import { DatePicker, Space } from 'antd';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
+const { RangePicker } = DatePicker;
+
 const Details = () => {
+    const onChange = (value) => {
+        console.log('changed', value);
+    };
+    const phongtrong = (e) => {
+        console.log(`checked = ${e.target.checked}`);
+    };
     return (
         <>
             <div>
@@ -81,7 +94,27 @@ const Details = () => {
                     
                 </div>
             </div>
+            <div class='row List' style={{ color: 'black' }}>
+                <div className='containerSearch'>
+                    <div className='loai-phong'>
+                        <label>Loại phòng</label>
+                        <Flex vertical gap={12}>
+                            <Input placeholder="" />
+                        </Flex>
+                    </div>
+                    <div style={{ marginTop: 23, }}>
+                        <label>Phòng trống </label>
+                        <Checkbox onChange={phongtrong}></Checkbox>
 
+                    </div>
+                    <div >
+                    </div>
+                    <div className="icon-container" >
+                        <Link to='/HotelFilter'><i style={{ color: 'white' }} className="fa-solid fa-magnifying-glass"></i></Link>
+                    </div>
+                </div>
+
+            </div>
 
 
 

@@ -11,6 +11,7 @@ import Register from './user/Register';
 import HotelFilter from './user/HotelFilter';
 import Details from './user/Details';
 import Bookingnow from './user/Bookingnow';
+import Pay from './user/Pay';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -35,13 +36,13 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Layout />}></Route>
                     <Route path="/book" element={<Booking />}></Route>
-                    <Route path="/Services" element={<Services />}></Route>
-                    <Route path="/Rooms" element={<Rooms />}></Route>
+                    
                     <Route path="/Login" element={<Login />}></Route>
                     <Route path="/Register" element={<Register />}></Route>
                     <Route path="/HotelFilter" element={<HotelFilter />}></Route>
                     <Route path="/Details" element={<Details />}></Route>
                     <Route path="/Bookingnow" element={<Bookingnow />}></Route>
+                    <Route path="/Pay" element={<Pay />}></Route>
 
 
                 </Routes>

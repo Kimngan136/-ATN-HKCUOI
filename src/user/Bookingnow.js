@@ -97,18 +97,17 @@ const Bookingnow = () => {
 
                                     <div>
                                         <label >Tỉnh/Thành phố: </label>
-                                        <Cascader options={optionsTinh} onChange={onChanger} placeholder="Please select" />;
+                                        <Cascader options={optionsTinh} onChange={onChanger} placeholder="Please select" />
 
                                     </div>
                                     <div>
                                         <label >Quận/Huyện: </label>
-                                        <Cascader options={optionsHuyen} onChange={onChanger} placeholder="Please select" />;
+                                        <Cascader options={optionsHuyen} onChange={onChanger} placeholder="Please select" />
 
                                     </div>
                                     <div>
                                         <label >Phường/Xã: </label>
-                                        <Cascader options={optionsXa} onChange={onChanger} placeholder="Please select" />;
-
+                                        <Cascader options={optionsXa} onChange={onChanger} placeholder="Please select" />
                                     </div>
 
                                 </div>
