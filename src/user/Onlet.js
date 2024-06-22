@@ -46,7 +46,7 @@ const Header = () => {
                     <div className='containerSearch'>
                         <div >
                             <label> Địa Điểm</label>
-                            <input style={{marginLeft:34,}} type="text" required placeholder="Bạn muốn đến đâu?" ></input>
+                            <input style={{ marginLeft: 34, }} type="text" required placeholder="Bạn muốn đến đâu?" ></input>
 
                         </div>
                         <div style={{ marginTop: 23, }}>
@@ -218,109 +218,8 @@ const Header = () => {
 
                     </div>
                 </div>
-                <div className='TOP3' style={{ marginTop: 60, color: 'black', fontWeight: 'bold', marginBottom: 20, }}>
-                    <h5 style={{ marginBottom: 30, marginLeft: 30, }}>CÁC HẠNG PHÒNG TÙY CHỌN</h5>
-                    <div className='containerBed'>
-                        <div className='column0 '>
-                            <img src='../asset1/images/phongdoi.jpg' style={{ width: '100%', height: 300, }} />
-                            <h3 style={{ color: '' }}>
-                                DOUPLE ROOM
-                            </h3>
-                            <div >
-                                <h5 style={{ marginLeft: 50, marginTop: 10, }}>
 
-                                    <span style={{ marginRight: 10, }}>
-                                        <FontAwesomeIcon icon={faPerson} />
-                                        2 khách
-                                    </span>
-
-                                    <span style={{}}>
-                                        <FontAwesomeIcon icon={faHouse} />
-                                        20m2
-                                    </span>
-                                    <p style={{ marginTop: 20, color: 'black' }}>
-                                        Mang đến trải nghiệm tốt nhất cho bạn, nơi thư giản cho các cặp đôi muốn tìm không gian riêng tư nhưng vẫn mới lạ và thoải mái.
-                                    </p>
-
-                                </h5>
-                                <button
-                                    style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, }} // Inline styling
-                                    className='btn-booking'>
-
-
-                                    <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
-                                        Đặt Ngay ...
-                                    </Link>
-                                </button>
-
-                            </div>
-                        </div>
-
-                        {/* /********************************************************** */}
-                        <div className='column rowbed'>
-                            <div className=' column1 '>
-                                <div className='rooms' >
-                                    <p style={{ color: 'white', marginLeft: 40, }}>LUXURY ROOM</p>
-                                    <button
-                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
-                                        className='btn-booking'>
-
-
-                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
-                                            Đặt Ngay ...
-                                        </Link>
-                                    </button>
-
-                                </div>
-                            </div>
-                            <div className='column2'>
-                                <div className='rooms'>
-                                    <p style={{ color: 'white', marginLeft: 40, }}>FAMILY ROOM</p>
-                                    <button
-                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
-                                        className='btn-booking'>
-
-
-                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
-                                            Đặt Ngay ...
-                                        </Link>
-                                    </button>
-
-                                </div>                          </div>
-                            <div className='column3'>
-
-                                <div className='rooms' >
-                                    <p style={{ color: 'white', marginLeft: 40, }} >SMALL ROOM</p>
-                                    <button
-                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
-                                        className='btn-booking'>
-
-
-                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
-                                            Đặt Ngay ...
-                                        </Link>
-                                    </button>
-
-                                </div>                        </div>
-                            <div className='column4'>
-                                <div className='rooms' >
-                                    <p style={{ color: 'white', marginLeft: 40, }}>APARMENT ROOM</p>                                    <button
-                                        style={{ marginLeft: 40, backgroundColor: '#5e503f', marginTop: 10, marginBottom: 20 }} // Inline styling
-                                        className='btn-booking'>
-
-
-                                        <Link to="/book" style={{ color: 'white', marginTop: 50, }}>
-                                            Đặt Ngay ...
-                                        </Link>
-                                    </button>
-
-                                </div>                       </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div className='TOP3' style={{ marginTop: 10, color: 'black', fontWeight: 'bold', marginBottom: 40, }}>
+                <div className='TOP3' style={{ top: 0, color: 'black', fontWeight: 'bold', marginBottom: 40, }}>
                     <h5 style={{ marginLeft: 30, }}><Link to='/Login'>ĐÃ QUAN TÂM GẦN ĐÂY</Link>
                     </h5>
                 </div>
@@ -430,6 +329,50 @@ const Header = () => {
                     </div>
                 </div>
 
+
+                <div className='blogs-back'>
+                    <h3 style={{ marginLeft: 30, marginTop: 10, color: 'gray', fontWeight: 'bold', marginBottom: 40, fontSize: 50, }}>Blogs</h3>
+                    <div className='container-blogs'>
+                        <div class="itemBlogs " >
+                            <div style={{ display: 'grid', marginTop: 25, }}>
+                                <img className='pic-blogs' src='../asset1/images/yp.jpg' alt="Card image" style={{ width: 300, height: 150, }} />
+                            </div>
+                            <div style={{ display: 'grid', marginTop: 30, }}>
+                                <a style={{ color: 'black', fontWeight: 'bold' }}>Đến thành phố Hồ Chí Minh ta nên đi đâu ?</a>
+                                <button class="styled-button-xemngay">Xem Ngay</button>
+                            </div>
+
+                        </div>
+                        <div class="itemBlogs ">
+                            <div style={{ display: 'grid', marginTop: 25, }}>
+                                <img className='pic-blogs' src='../asset1/images/tcv.jpg' alt="Card image" style={{ width: 300, height: 150, }} />
+                            </div>
+                            <div style={{ display: 'grid', marginTop: 30, }}>
+                                <a style={{ color: 'black', fontWeight: 'bold' }}>thành phố Hồ Chí Minh có gì vui ?</a>
+                                <button class="styled-button-xemngay">Xem Ngay</button>
+                            </div>
+                        </div>
+                        <div class="itemBlogs ">
+                            <div style={{ display: 'grid', marginTop: 25, }}>
+                                <img className='pic-blogs' src='../asset1/images/coffee.jpg' alt="Card image" style={{ width: 300, height: 150, }} />
+                            </div>
+                            <div style={{ display: 'grid', marginTop: 30, }}>
+                                <a style={{ color: 'black', fontWeight: 'bold' }}>CheckIn coffee chill cùng các món thức uống mới ?</a>
+                                <button class="styled-button-xemngay">Xem Ngay</button>
+                            </div>
+                        </div>
+                        <div class="itemBlogs ">
+                            <div style={{ display: 'grid', marginTop: 25, }}>
+                                <img className='pic-blogs' src='../asset1/images/ngon.jpg' alt="Card image" style={{ width: 300, height: 150, }} />
+                            </div>
+                            <div style={{ display: 'grid', marginTop: 30, }}>
+                                <a style={{ color: 'black', fontWeight: 'bold' }}>Đến thành phố Hồ Chí Minh ta nên ăn gì ?</a>
+                                <button class="styled-button-xemngay">Xem Ngay</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
         </div >

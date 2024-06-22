@@ -12,6 +12,8 @@ import HotelFilter from './user/HotelFilter';
 import Details from './user/Details';
 import Bookingnow from './user/Bookingnow';
 import Pay from './user/Pay';
+import Confirmpayment from './user/confirmpayment ';
+import Xemthem from './user/Xemthem';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -43,7 +45,9 @@ function App() {
                     <Route path="/Details" element={<Details />}></Route>
                     <Route path="/Bookingnow" element={<Bookingnow />}></Route>
                     <Route path="/Pay" element={<Pay />}></Route>
+                    <Route path="/Xemthem" element={<Xemthem />}></Route>
 
+                    <Route path="/Confirmpayment" element={<Confirmpayment />}></Route>
 
                 </Routes>
             </BrowserRouter >

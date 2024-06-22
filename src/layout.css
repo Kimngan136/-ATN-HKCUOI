@@ -15,6 +15,7 @@
     position: relative;
     height: 70px;
     margin-top: -10px;
+    width: 160px;
 }
 
 .grid-container {
@@ -34,6 +35,7 @@
 }
 
 .topH {
+    width: 180px;
     height: 45px;
     display: inline-block;
     padding: 10px;
@@ -60,6 +62,7 @@
 
 
 .topH1 {
+    width: 150px;
     height: 45px;
     display: inline-block;
     padding: 10px;
@@ -99,6 +102,58 @@
     height: 450px;
     position: relative;
 }
+
+.styled-button-xemngay {
+    width: 150px;
+    height: 40px;
+    margin-left: 30px;
+    justify-content: center;
+    background-color: #008CBA;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button-xemngay:hover {
+    background-color: #005f6b;
+}
+
+
+.blogs-back {
+    background-color: white;
+    top: 50px;
+}
+
+.container-blogs {
+    margin-top: 50px;
+    margin-bottom: 90px;
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: 200px 200px;
+    grid-gap: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.pic-blogs {
+    margin-left: 5px;
+}
+
+.itemBlogs {
+    top: 10px;
+    border: 1px solid #eae6e6;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
 
 .background-overlay {
     top: 0;
@@ -188,7 +243,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
     height: 500px;
-    margin: 0 70px 0 70px;
+    margin: 0 70px 60px 70px;
 }
 
 .card-img-top {
@@ -233,7 +288,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
     height: 500px;
-    margin: 0 70px 0 70px;
+    margin: 40px 70px 0 70px;
 }
 
 .containerBed {
@@ -797,7 +852,6 @@ li a {
 }
 
 /********************************************   LOGIN*  ***************************************************************/
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap');
 
 
 .bg-img {
@@ -912,6 +966,11 @@ li a {
     background: #2691d9;
 }
 
+.login-name {
+    color: black;
+    margin: 20px;
+}
+
 .login {
     color: white;
     margin: 20px 0;
@@ -988,7 +1047,7 @@ i span {
 .inputRpass {
 
     margin-top: 3px;
-    width: 306px;
+    width: 330px;
 }
 
 /*****************   CHI TIẾT KHÁCH SẠN CSS   ***********************************/
@@ -1148,130 +1207,239 @@ i span {
     background-size: cover;
     background-position: center;
     background-image: url("../public/asset1/images/vnpay.png");
-    
+
     width: 290px;
 }
- .btn-payment {
-     background-color: #007bff;
-     /* Green background */
-     border: none;
-     /* Remove borders */
-     color: white;
-     /* White text */
-     padding: 15px 32px;
-     /* Add some padding */
-     text-align: center;
-     /* Center the text */
-     text-decoration: none;
-     /* Remove underline */
-     display: inline-block;
-     /* Make the button inline */
-     font-size: 16px;
-     /* Increase font size */
-     margin: 10px 2px;
-     /* Add some margin */
-     cursor: pointer;
-     /* Add a pointer cursor on hover */
-     border-radius: 8px;
-     /* Rounded corners */
-     transition: background-color 0.3s;
-     /* Smooth transition for hover effect */
- }
 
- .btn-payment:hover {
-     background-color: #0d529c;
-     /* Darker green on hover */
- }
+.btn-payment {
+    background-color: #007bff;
+    /* Green background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 15px 32px;
+    /* Add some padding */
+    text-align: center;
+    /* Center the text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    /* Make the button inline */
+    font-size: 16px;
+    /* Increase font size */
+    margin: 10px 2px;
+    /* Add some margin */
+    cursor: pointer;
+    /* Add a pointer cursor on hover */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: background-color 0.3s;
+    /* Smooth transition for hover effect */
+}
 
- .containerpay {
-     width: 80%;
-     max-width: 1000px;
-     margin: 0 auto;
-     padding: 20px;
- }
+.btn-payment:hover {
+    background-color: #0d529c;
+    /* Darker green on hover */
+}
 
- .header {
-     background-color: #fff;
-     padding: 10px;
-     border-bottom: 1px solid #ddd;
- }
+.containerpay {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
- .header .title {
-     font-size: 1.5em;
-     font-weight: bold;
- }
+.header {
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
- .content {
-     background-color: #fff;
-     padding: 20px;
-     border-radius: 5px;
-     margin-bottom: 20px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
- }
+.header .title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
 
- .info {
-     font-size: 20px;
-     font-weight: bold;
-     margin-bottom: 10px;
- }
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
- .details {
-     margin-bottom: 20px;
- }
+.info {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
- .details .label {
-     font-weight: bold;
- }
+.details {
+    margin-bottom: 20px;
+}
 
- .details .value {
-     margin-left: 10px;
- }
+.details .label {
+    font-weight: bold;
+}
 
- .footerpay {
-     background-color: #fff;
-     padding: 10px;
-     border-top: 1px solid #ddd;
- }
+.details .value {
+    margin-left: 10px;
+}
 
- .footerpay .total {
-     font-size: 1.5em;
-     font-weight: bold;
-     margin-bottom: 10px;
- }
+.footerpay {
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
 
- .footerpay .buttongui {
-     background-color: #007bff;
-     color: #fff;
-     padding: 10px 20px;
-     border: none;
-     border-radius: 5px;
-     cursor: pointer;
- }
+.footerpay .total {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
- .footerpay .buttongui:hover {
-     background-color: #0062cc;
- }
+.footerpay .buttongui {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
- .vnpa-logo {
-     display: block;
-     margin: 0 auto;
-     width: 100px;
-     height: auto;
-     margin-bottom: 20px;
- }
- .value {
-     padding: 20px;
-     border: 1px solid #ccc;
-     border-radius: 8px;
-     background-color: #f9f9f9;
- }
+.footerpay .buttongui:hover {
+    background-color: #0062cc;
+}
 
- .value div {
-     margin-bottom: 10px;
-     font-size: 16px;
-     color: #333;
- }
+.vnpa-logo {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
 
- .value div:last-child {
-     margin-bottom: 0;
- }
+.value {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.value div {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.value div:last-child {
+    margin-bottom: 0;
+}
+
+/********************************    Confirmpayment ********************************/
+
+.containerPayment {
+    width: 400px;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    font-size: 36px;
+    margin: 20px auto;
+}
+
+.success-message {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tablePayment {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.buttonPayment {
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    text-align: center;
+}
+
+.buttonPayment:hover {
+    background-color: #1976D2;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.paymentheader {
+    background-image: url("../public/asset1/images/hotel.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    position: relative;
+}
+
+/************************    BLOGS ********************************/
+.Seemore {
+    justify-content: center;
+    text-align: center;
+    /* margin: 30px 90px 50px 90px; */
+    display: flex;
+    width: 500px;
+    height: 200px;
+}
+
+.seemoreleft {
+    justify-content: center;
+    text-align: center;
+    background-color: #ced7e0;
+    display: flex;
+    gap: 10px;
+
+}
+
+.seemoreRight {
+    justify-content: center;
+    text-align: center;
+    background-color: #60758a;
+    display: flex;
+    gap: 10px;
+}
