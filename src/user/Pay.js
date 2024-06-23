@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { Checkbox, Flex, Input, Col, Row } from 'antd';
 import swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
 };
@@ -45,7 +46,7 @@ const Pay = () => {
                                 </div>
                             </div>
                         </div>
-
+                        {/* <Link class="btn-payment"  to='/Pay'>THANH TOÁN</Link> */}
                         <button class="btn-payment" onClick={pays}>
                             THANH TOÁN
                         </button>

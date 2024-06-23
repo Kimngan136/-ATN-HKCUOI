@@ -1101,6 +1101,7 @@ i span {
     transition: background-color 0.3s ease;
 }
 
+
 .btn-dat-phong:hover {
     background-color: #317435;
 }
@@ -1138,6 +1139,30 @@ i span {
 }
 
 /************************     TRANG BOOKING NOW CSS    *************************************************************************/
+.container-BookingNow {
+    width: 100%;
+    max-width: 600px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    /* Optional: Adds a background color */
+}
+/* 
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  
+} */
+
+
+
 .body-booking {
     background-size: cover;
     background-position: center;
