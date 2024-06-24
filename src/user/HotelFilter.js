@@ -8,6 +8,7 @@ import 'dayjs/locale/vi';
 import axios from 'axios';
 import axiosCustomize from '../axios/axiosCustomize';
 import Map from '../Components/Map';
+import ListFilter from './ListFilter';
 
 
 const { RangePicker } = DatePicker;
@@ -191,29 +192,45 @@ const HotelFilter = () => {
                     </div>
                 </div>
             </div>
-            <div className="filter-sidebar">
-                <Map hotelData={hotelData} />
+            <div className='container-filterList'>
+                <div className="filter-sidebar">
+                    <Map hotelData={hotelData} />
 
-                <div style={{ padding: '10px' }}>
-                    <p>Giá tiền của bạn</p>
-                    <Slider range defaultValue={[20, 50]} />
-                    <hr></hr>
+                    <div style={{ padding: '10px' }}>
+                        <p>Giá tiền của bạn</p>
+                        <Slider range defaultValue={[20, 50]} />
+                        <hr></hr>
 
-                    <p>Dịch vụ chung của khách sạn:</p>
-                    <Checkbox onChange={onChange}>Chấp nhận trẻ em</Checkbox>
-                    <Checkbox onChange={onChange}>Chấp nhận thú cưng </Checkbox>
-                    <Checkbox onChange={onChange}>Hỗ trợ người khuyết tật</Checkbox>
-                    <Checkbox onChange={onChange}>Có thang máy</Checkbox>
-                    <Checkbox onChange={onChange}>Có hồ bơi</Checkbox>
+                        <p>Dịch vụ chung của khách sạn:</p>
+                        <Checkbox onChange={onChange}>Chấp nhận trẻ em</Checkbox>
+                        <Checkbox onChange={onChange}>Chấp nhận thú cưng </Checkbox>
+                        <Checkbox onChange={onChange}>Hỗ trợ người khuyết tật</Checkbox>
+                        <Checkbox onChange={onChange}>Có thang máy</Checkbox>
+                        <br/>
+                        <Checkbox onChange={onChange}>Có hồ bơi</Checkbox>
 
-                    <p>Số sao</p>
-                    <Checkbox onChange={onChange}>5 sao</Checkbox>
-                    <Checkbox onChange={onChange}>4 sao</Checkbox>
-                    <Checkbox onChange={onChange}>3 sao</Checkbox>
-                    <Checkbox onChange={onChange}>2 sao</Checkbox>
-                    <Checkbox onChange={onChange}>1 sao</Checkbox>
+                        <p>Số sao</p>
+                        <Checkbox onChange={onChange}>5 sao</Checkbox>
+                        <Checkbox onChange={onChange}>4 sao</Checkbox>
+                        <Checkbox onChange={onChange}>3 sao</Checkbox>
+                        <Checkbox onChange={onChange}>2 sao</Checkbox>
+                        <Checkbox onChange={onChange}>1 sao</Checkbox>
+                    </div>
+                    <button className='clear-button ' >X</button>
+
                 </div>
+                <div className="filter-listCard">
+                    
+                    
+                    {/* VÍ DỤ MÀ NHẬP ListFilter VÀO HOTELFILTER THÌ ĐẶT NÓ NGAY ĐÂY NHA
+                    NHỚ THÊM ANT.CSS */}
+                    <ListFilter />
+                    
+                    
+                </div>
+
             </div>
+
         </>
     );
 };

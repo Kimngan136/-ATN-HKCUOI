@@ -18,6 +18,7 @@ import DashBoard from './Owner/Pages/Booking/DashBoard';
 import Information from './Owner/Pages/Booking/Information';
 import BookingTable from './Owner/Pages/Booking/BookingTable';
 import RoomType from './Owner/Pages/Booking/RoomType';
+import ListFilter from './user/ListFilter';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/register" element={<Register />}></Route>
                 <Route path="/registerhotel" element={<HotelRegister />}></Route>
+                <Route path="/listfilter" element={<ListFilter />}></Route>
 
             </Routes >
 
