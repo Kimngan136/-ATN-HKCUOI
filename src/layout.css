@@ -9,13 +9,13 @@
 }
 
 .logo {
-    background-image: url("../public/asset1/images/logo.jpg");
+    background-image: url("../public/asset/images/logo.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
-    height: 70px;
-    margin-top: -10px;
-    width: 160px;
+    height: 100px;
+    margin-top: -40px;
+    width: 200px;
 }
 
 .grid-container {
@@ -62,12 +62,12 @@
 
 
 .topH1 {
-    width: 150px;
-    height: 45px;
-    display: inline-block;
-    padding: 10px;
-    border: 0px solid #007bff;
+    width: auto;
+    height: fit-content;
+    /* display: inline-block; */
+    padding: 10px; 
     border-radius: 25px;
+    border: 0px solid #007bff;
     background-color: #ebf2f7;
 }
 
@@ -96,7 +96,7 @@
 
 /* *************************************************************  BODY CONTAINER****************************************************************** */
 .Onlet-body {
-    background-image: url("../public/asset1/images/hotel.jpg");
+    background-image: url("../public/asset/images/hotel1.jpg");
     background-size: cover;
     background-position: center;
     height: 450px;
@@ -177,18 +177,18 @@
 
 
 .containerSearch {
-    display: grid;
-    grid-template-columns: 3fr 4fr 2fr 1fr;
-    gap: 10px;
+    display: flex;
+    /* grid-template-columns: 3fr 4fr 2fr 1fr; */
+    gap: 15px;
     border: 1px solid #007bff;
-    border-radius: 35px;
+    border-radius: 20px;
     justify-content: center;
     text-align: center;
     height: 65px;
-    top: 100px;
+    top: 50px;
     margin: 0px;
     background-color: white;
-    width: 750px;
+    width: 930px;
     margin-top: 50px;
 }
 
@@ -201,6 +201,16 @@
 
 }
 
+.filter-sidebar {
+    width: 300px; 
+    margin-left: 120px;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column;
+    gap: 10px; /* Gap between each child element */
+ 
+    border: 1px solid green;
+    /* margin-right: 10px; */
+  }
 
 .col-sm-6 {
 
@@ -311,6 +321,11 @@
 
 }
 
+.custom-autocomplete .ant-input-placeholder {
+    font-weight: bold; /* Thiết lập độ đậm của placeholder */
+}
+
+
 .column0 {
     border: 1px solid #ccc;
 }
@@ -319,35 +334,35 @@
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/luxury.jpg");
+    background-image: url("../public/asset/images/luxury.jpg");
 }
 
 .column2 {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/giadinh.jpg");
+    background-image: url("../public/asset/images/giadinh.jpg");
 }
 
 .column3 {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/phongdon.jpg");
+    background-image: url("../public/asset/images/phongdon.jpg");
 }
 
 .column4 {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/apatment.jpg");
+    background-image: url("../public/asset/images/apatment.jpg");
 }
 
 .column5 {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/apatment.jpg");
+    background-image: url("../public/asset/images/apatment.jpg");
 }
 
 .rooms {
@@ -362,7 +377,7 @@
 .footer {
     background-color: #333;
     color: #fff;
-    padding: 40px 0;
+    padding: 40px ;
 }
 
 .footer-container {
@@ -687,14 +702,14 @@ li a {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/phuongtien1.jpg");
+    background-image: url("../public/asset/images/phuongtien1.jpg");
 }
 
 .item5 {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/map.jpg");
+    background-image: url("../public/asset/images/map.jpg");
 }
 
 .item7 {
@@ -713,7 +728,7 @@ li a {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/dailywalk.jpg");
+    background-image: url("../public/asset/images/dailywalk.jpg");
     color: black;
     bottom: 120px;
     font-weight: bold;
@@ -723,7 +738,7 @@ li a {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/relaxzone.jpg");
+    background-image: url("../public/asset/images/relaxzone.jpg");
     color: black;
 
     font-size: 30px;
@@ -844,7 +859,7 @@ li a {
     background-size: cover;
     /* Hiển thị hình nền sao cho che kín khung */
     background-position: center;
-    background-image: url("../public/asset1/images/relaxzone.jpg");
+    background-image: url("../public/asset/images/relaxzone.jpg");
     margin-top: 50px;
     height: 300px;
     width: 350px;
@@ -855,7 +870,7 @@ li a {
 
 
 .bg-img {
-    background: url("../public/asset1/images/hotel.jpg");
+    background: url("../public/asset/images/hotel1.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -1055,7 +1070,7 @@ i span {
 
     background-size: cover;
     background-position: center;
-    background-image: url("../public/asset1/images/phongdoi.jpg");
+    background-image: url("../public/asset/images/phongdoi.jpg");
 }
 
 .btn-seepic {
@@ -1101,7 +1116,6 @@ i span {
     transition: background-color 0.3s ease;
 }
 
-
 .btn-dat-phong:hover {
     background-color: #317435;
 }
@@ -1139,34 +1153,10 @@ i span {
 }
 
 /************************     TRANG BOOKING NOW CSS    *************************************************************************/
-.container-BookingNow {
-    width: 100%;
-    max-width: 600px;
-    /* Adjust as needed */
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    /* Optional: Adds a background color */
-}
-/* 
-body {
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-  
-} */
-
-
-
 .body-booking {
     background-size: cover;
     background-position: center;
-    background-image: url("../public/asset1/images/hotel.jpg");
+    background-image: url("../public/asset/images/hotel1.jpg");
     height: 900px;
 
     color: black;
@@ -1223,7 +1213,7 @@ body {
 .vnpay {
     background-size: cover;
     background-position: center;
-    background-image: url("../public/asset1/images/momo.png");
+    background-image: url("../public/asset/images/momo.png");
     height: 100px;
     width: 150px;
 }
@@ -1231,7 +1221,7 @@ body {
 .vnpay {
     background-size: cover;
     background-position: center;
-    background-image: url("../public/asset1/images/vnpay.png");
+    background-image: url("../public/asset/images/vnpay.png");
 
     width: 290px;
 }
@@ -1435,7 +1425,7 @@ th {
 }
 
 .paymentheader {
-    background-image: url("../public/asset1/images/hotel.jpg");
+    background-image: url("../public/asset/images/hotel1.jpg");
     background-size: cover;
     background-position: center;
     height: 200px;

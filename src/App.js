@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter, Outlet } from 'react-router-dom';
 import Layout from './layout';
 import Login from './user/Login';
 import Register from './user/Register';
@@ -11,6 +11,8 @@ import Pay from './user/Pay';
 import Confirmpayment from './user/confirmpayment ';
 import Xemthem from './user/Xemthem';
 import Book from './user/Book';
+import HomePage from './user/HomePage';
+import HotelRegister from './user/HotelRegister';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -31,22 +33,28 @@ function App() {
     }, []);
     return (
         <>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Layout />}></Route>
-                    <Route path="/book" element={<Book />}></Route>
-                    
-                    <Route path="/Login" element={<Login />}></Route>
-                    <Route path="/Register" element={<Register />}></Route>
-                    <Route path="/HotelFilter" element={<HotelFilter />}></Route>
-                    <Route path="/Details" element={<Details />}></Route>
-                    <Route path="/Pay" element={<Pay />}></Route>
-                    <Route path="/Xemthem" element={<Xemthem />}></Route>
 
-                    <Route path="/Confirmpayment" element={<Confirmpayment />}></Route>
+            <Routes>
 
-                </Routes>
-            </BrowserRouter >
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<HomePage />} />
+                    <Route path="/book" element={<Book />} />
+                    <Route path="/filter" element={<HotelFilter />} />
+                    <Route path="/detail/:id" element={<Details />}></Route>
+                    <Route path="/pay" element={<Pay />}></Route>
+                    <Route path="/confirmpayment" element={<Confirmpayment />}></Route>
+                </Route>
+
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/register" element={<Register />}></Route>
+                <Route path="/registerhotel" element={<HotelRegister />}></Route>
+
+
+
+
+
+            </Routes >
+
 
         </>
     );

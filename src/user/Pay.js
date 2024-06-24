@@ -18,7 +18,7 @@ const Pay = () => {
     };
     return (
         <>
-            <Header />
+
             < div className=''>
 
                 <div className='Payments '>
@@ -104,7 +104,7 @@ const Pay = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+
         </>
     )
 };
