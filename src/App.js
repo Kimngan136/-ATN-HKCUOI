@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter, Outlet } from 'react-router-dom';
@@ -13,6 +13,11 @@ import Xemthem from './user/Xemthem';
 import Book from './user/Book';
 import HomePage from './user/HomePage';
 import HotelRegister from './user/HotelRegister';
+import LayoutOwner from './Owner/LayoutOwner';
+import DashBoard from './Owner/Pages/Booking/DashBoard';
+import Information from './Owner/Pages/Booking/Information';
+import BookingTable from './Owner/Pages/Booking/BookingTable';
+import RoomType from './Owner/Pages/Booking/RoomType';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -45,13 +50,19 @@ function App() {
                     <Route path="/confirmpayment" element={<Confirmpayment />}></Route>
                 </Route>
 
+
+
+                <Route path="/owner" element={<LayoutOwner />} >
+                    <Route index path="dashboard" element={<DashBoard />} />
+                    <Route path="information" element={<Information />} />
+                    <Route path="booking" element={<BookingTable />} />
+                    <Route path="roomtype" element={<RoomType />} />
+                </Route>
+
+
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/register" element={<Register />}></Route>
                 <Route path="/registerhotel" element={<HotelRegister />}></Route>
-
-
-
-
 
             </Routes >
 
