@@ -19,6 +19,7 @@ import Information from './Owner/Pages/Booking/Information';
 import BookingTable from './Owner/Pages/Booking/BookingTable';
 import RoomType from './Owner/Pages/Booking/RoomType';
 import ListFilter from './user/ListFilter';
+import Review from './user/Review';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -65,6 +66,7 @@ function App() {
                 <Route path="/register" element={<Register />}></Route>
                 <Route path="/registerhotel" element={<HotelRegister />}></Route>
                 <Route path="/listfilter" element={<ListFilter />}></Route>
+                <Route path="/Review" element={<Review />}></Route>
 
             </Routes >
 

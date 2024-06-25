@@ -197,24 +197,24 @@ const HotelFilter = () => {
                     <Map hotelData={hotelData} />
 
                     <div style={{ padding: '10px' }}>
-                        <p>Giá tiền của bạn</p>
+                        <p style={{ fontWeight: 'bold', color:'black' }}>Giá tiền của bạn</p>
                         <Slider range defaultValue={[20, 50]} />
                         <hr></hr>
 
-                        <p>Dịch vụ chung của khách sạn:</p>
+                        <p style={{ fontWeight: 'bold', color: 'black' }}>Dịch vụ chung của khách sạn:</p>
                         <Checkbox onChange={onChange}>Chấp nhận trẻ em</Checkbox>
                         <Checkbox onChange={onChange}>Chấp nhận thú cưng </Checkbox>
-                        <Checkbox onChange={onChange}>Hỗ trợ người khuyết tật</Checkbox>
+                        <Checkbox onChange={onChange}>Hỗ trợ người khuyết tật</Checkbox><br/>
                         <Checkbox onChange={onChange}>Có thang máy</Checkbox>
                         <br/>
                         <Checkbox onChange={onChange}>Có hồ bơi</Checkbox>
 
-                        <p>Số sao</p>
-                        <Checkbox onChange={onChange}>5 sao</Checkbox>
-                        <Checkbox onChange={onChange}>4 sao</Checkbox>
-                        <Checkbox onChange={onChange}>3 sao</Checkbox>
-                        <Checkbox onChange={onChange}>2 sao</Checkbox>
-                        <Checkbox onChange={onChange}>1 sao</Checkbox>
+                        <p style={{ fontWeight: 'bold', color: 'black' }}>Số sao</p>
+                        <Checkbox onChange={onChange}>5 <i class="fa-solid fa-star" style={{color:'yellow'}}></i></Checkbox>
+                        <Checkbox onChange={onChange}>4 <i class="fa-solid fa-star" style={{ color: 'yellow' }}></i></Checkbox>
+                        <Checkbox onChange={onChange}>3 <i class="fa-solid fa-star" style={{ color: 'yellow' }}></i></Checkbox>
+                        <Checkbox onChange={onChange}>2 <i class="fa-solid fa-star" style={{ color: 'yellow' }}></i></Checkbox>
+                        <Checkbox onChange={onChange}>1 <i class="fa-solid fa-star" style={{ color: 'yellow' }}></i></Checkbox>
                     </div>
                     <button className='clear-button ' >X</button>
 
