@@ -53,7 +53,7 @@ const Repass = () => {
                         {/* Input cho Email hoặc Số điện thoại */}
                         <Form.Item
                             name="username"
-                            rules={[{ required: true, message: 'Vui lòng nhập Email hoặc Số điện thoại!' }]}
+                            rules={[{ required: true, message: 'Vui lòng nhập Email' }]}
                         >
                             <Input
                                 size="large"
@@ -63,19 +63,19 @@ const Repass = () => {
                             />
                         </Form.Item>
 
-                       
 
-                       
+
+
 
                         <div >
                             <Button type="primary" htmlType="submit" style={{ width: '100%', height: '50px' }}>
 
 
-                               Gửi
+                                Gửi
                             </Button>
                         </div>
                     </Form>
-                   
+
                 </div>
             </div>
         </>
