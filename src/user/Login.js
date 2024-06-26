@@ -87,8 +87,8 @@ const Login = () => {
                                 </label>
                             </Form.Item>
                         </div>
-                        <div className="field">
-                            <Button className="field" htmlType="submit">
+                        <div >
+                            <Button type="primary" htmlType="submit" style={{ width: '100%', height: '50px' }}>
                                 ĐĂNG NHẬP
                             </Button>
                         </div>
