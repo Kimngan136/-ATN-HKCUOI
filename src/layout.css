@@ -1494,8 +1494,7 @@ Slider.rc-slider-handle:hover {
     /* Light border */
     border-radius: 4px;
     /* Rounded corners */
-    overflow-y: auto;
-    /* Scrollable if content overflows */
+  
 }
 
 .map-filter {

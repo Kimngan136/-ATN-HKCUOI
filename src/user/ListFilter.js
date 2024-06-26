@@ -1,6 +1,5 @@
 import React from 'react';
 import { DatePicker } from 'antd'; // Giả sử bạn đang sử dụng Ant Design cho DatePicker
-import './antd.css'; // Nhớ import CSS của Ant Design
 const { RangePicker } = DatePicker;
 
 const hotels = [
