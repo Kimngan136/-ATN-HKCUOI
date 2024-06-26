@@ -193,10 +193,15 @@ const HotelFilter = () => {
                 </div>
             </div>
             <div className='container-filterList'>
-                <div className="filter-sidebar">
-                    <Map hotelData={hotelData} />
+                <div className="filter-sidebar" style={{ height: 600,width:340, }}>
 
-                    <div style={{ padding: '10px' }}>
+                    <button className='clear-button ' >X</button>
+
+                    <div className='map-filter'>
+                        <Map hotelData={hotelData} />
+                    </div>
+
+                    <div style={{ padding: '10px', marginTop:90}}>
                         <p style={{ fontWeight: 'bold', color:'black' }}>Giá tiền của bạn</p>
                         <Slider range defaultValue={[20, 50]} />
                         <hr></hr>
@@ -216,7 +221,6 @@ const HotelFilter = () => {
                         <Checkbox onChange={onChange}>2 <i class="fa-solid fa-star" style={{ color: 'yellow' }}></i></Checkbox>
                         <Checkbox onChange={onChange}>1 <i class="fa-solid fa-star" style={{ color: 'yellow' }}></i></Checkbox>
                     </div>
-                    <button className='clear-button ' >X</button>
 
                 </div>
                 <div className="filter-listCard">

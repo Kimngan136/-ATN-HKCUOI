@@ -45,7 +45,11 @@ const Register = () => {
 
                     </div>
                     <div class="field">
-                        <input type="submit" value="Đăng Ký" />
+                        <Button type="primary" htmlType="submit" style={{ width: '100%', height: '50px' }}>
+
+
+                            ĐĂNG KÝ
+                        </Button>
                     </div>
                 </form>
                 <div class="login" style={{ color: 'gray' }}>-------------------------------------</div>
