@@ -266,6 +266,8 @@ const HomePage = () => {
                     <h5 style={{ marginLeft: 30, }}>
                         <Link to='/Details'>ĐANG THỊNH HÀNH <i style={{ color: 'red', marginBottom: 30, }} class="fa-solid fa-fire"></i>
                         </Link>
+                        <Link to='/Details' style={{ float: 'right' }}>xem thêm <i class="fa-solid fa-arrow-right"></i>
+                        </Link>
                     </h5>
                     <div class="containerTrend">
                         <div class="card" >
@@ -377,7 +379,9 @@ const HomePage = () => {
                 </div>
 
                 <div className='TOP3' style={{ top: 0, color: 'black', fontWeight: 'bold', marginBottom: 40, }}>
-                    <h5 style={{ marginLeft: 30, }}><Link to='/Login'>ĐÃ QUAN TÂM GẦN ĐÂY</Link>
+                    <h5 style={{ marginLeft: 30, }}><Link to='/Details'>ĐÃ QUAN TÂM GẦN ĐÂY</Link>
+                        <Link to='/Details' style={{ float: 'right' }}>xem thêm <i class="fa-solid fa-arrow-right"></i>
+                        </Link>
                     </h5>
                 </div>
                 <div className='room'>

@@ -96,7 +96,7 @@ const Map = (props) => {
 
   return (
 
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: '100%', }}>
       {hotelData && hotelData.length > 0 ? (
         <>
           <div ref={smallMapContainer} />

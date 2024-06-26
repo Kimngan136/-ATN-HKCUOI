@@ -193,7 +193,7 @@ const HotelFilter = () => {
                 </div>
             </div>
             <div className='container-filterList'>
-                <div className="filter-sidebar" style={{ height: 600,width:340, }}>
+                <div className="filter-sidebar" style={{ height: 500,width:340, }}>
 
                     <button className='clear-button ' >X</button>
 
@@ -201,7 +201,7 @@ const HotelFilter = () => {
                         <Map hotelData={hotelData} />
                     </div>
 
-                    <div style={{ padding: '10px', marginTop:90}}>
+                    <div style={{ padding: '10px', marginTop:0}}>
                         <p style={{ fontWeight: 'bold', color:'black' }}>Giá tiền của bạn</p>
                         <Slider range defaultValue={[20, 50]} />
                         <hr></hr>
