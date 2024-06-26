@@ -14,7 +14,8 @@
     background-position: center;
     position: relative;
     height: 100px;
-    margin-top: -40px;
+    margin-top: -37px;
+    
     width: 200px;
 }
 
@@ -189,7 +190,7 @@
     margin: 0px;
     background-color: white;
     width: 930px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .onlet-text {
@@ -744,9 +745,9 @@ a {
     height: 45px;
     width: 100%;
     display: flex;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(0, 191, 255, 0.94);
 }
-
+/* 
 .field span {
     color: #222;
     width: 40px;
@@ -762,7 +763,7 @@ a {
     color: #222;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-}
+} */
 
 .space {
     margin-top: 16px;
@@ -1113,7 +1114,7 @@ i span {
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .info {

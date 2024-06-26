@@ -1,4 +1,6 @@
 /* CSS HEADER */
+@import '~antd/dist/reset.css';
+
 .Container-header {
     width: 100vw;
     height: 500px;

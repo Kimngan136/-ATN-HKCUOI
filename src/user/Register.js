@@ -9,7 +9,7 @@ const Register = () => {
         <div class="bg-img" >
             <div class="content" style={{ height: 690 }}>
                 <h1 className='login-name'>ĐĂNG KÝ</h1>
-                
+
                 <form action="">
                     <Input size="large" placeholder="Tên đăng ký" prefix={<UserAddOutlined />} />
                     <br />
@@ -35,20 +35,20 @@ const Register = () => {
                                 placeholder="Nhập lạimật khẩu"
                                 visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
                             />
-                            
+
                         </Space>
                     </Space>
-                   
-                    
+
+
                     <div class='pass'>
-                        <label style={{color:'black'}}><input type="checkbox" id="rememberMe" />  Nhớ mật khẩu</label>
-                        
+                        <label style={{ color: 'black' }}><input type="checkbox" id="rememberMe" />  Nhớ mật khẩu</label>
+
                     </div>
                     <div class="field">
                         <input type="submit" value="Đăng Ký" />
                     </div>
                 </form>
-                <div class="login" style={{color:'gray'}}>-------------------------------------</div>
+                <div class="login" style={{ color: 'gray' }}>-------------------------------------</div>
                 <div class="links">
 
                     <div class="instagram">
@@ -56,7 +56,7 @@ const Register = () => {
                     </div>
                 </div>
                 <div class="signup">
-                    Đã có tài khoản? <a href="#">Đăng nhập ngay</a>
+                    Đã có tài khoản? <a href="#"> Đăng nhập </a>
                 </div>
             </div>
         </div>

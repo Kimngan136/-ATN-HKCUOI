@@ -55,26 +55,25 @@ const HotelFilter = () => {
             // };
 
             // URL endpoint
-
-            console.log('requestData', province);
-            // Gửi yêu cầu Axios
-            axiosCustomize.post(`/Hotels/getavailablehotel?province=${province}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
-                .then(response => {
-                    console.log('Đã gửi yêu cầu thành công!', response.data);
+            const fetchHotel = async () => {
+                console.log('requestData', province);
+                // Gửi yêu cầu Axios
+                try {
+                    const fetch = await axiosCustomize.post(`/Hotels/getavailablehotel?province=${province}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
+                    console.log(fetch.data);
+                    setHotelData(fetch.data)
                     messageApi.open({
                         type: 'success',
                         content: 'Thành công',
                     });
-                    // Xử lý dữ liệu trả về nếu cần
-                    setHotelData(response.data);
-
-                })
-                .catch(error => {
+                } catch (error) {
                     console.error('Đã xảy ra lỗi khi gửi yêu cầu:', error);
-                    // Xử lý lỗi nếu có
-                });
+                }
+            }
+            fetchHotel();
         }
     }, []);
+
     const disabledDate = (current) => {
         return current && current < dayjs().endOf('day');
     };
@@ -160,6 +159,7 @@ const HotelFilter = () => {
     };
     return (
         <>
+            {contextHolder}
             <div className='row' style={{ top: '-60px' }}>
                 <div className='containerSearch' style={{ width: '950px' }}>
                     <div style={{ marginTop: 20 }}>
@@ -206,7 +206,7 @@ const HotelFilter = () => {
                         <Checkbox onChange={onChange}>Chấp nhận thú cưng </Checkbox>
                         <Checkbox onChange={onChange}>Hỗ trợ người khuyết tật</Checkbox><br/>
                         <Checkbox onChange={onChange}>Có thang máy</Checkbox>
-                        <br/>
+                        <br />
                         <Checkbox onChange={onChange}>Có hồ bơi</Checkbox>
 
                         <p style={{ fontWeight: 'bold', color: 'black' }}>Số sao</p>
@@ -220,13 +220,13 @@ const HotelFilter = () => {
 
                 </div>
                 <div className="filter-listCard">
-                    
-                    
+
+
                     {/* VÍ DỤ MÀ NHẬP ListFilter VÀO HOTELFILTER THÌ ĐẶT NÓ NGAY ĐÂY NHA
                     NHỚ THÊM ANT.CSS */}
                     <ListFilter />
-                    
-                    
+
+
                 </div>
 
             </div>

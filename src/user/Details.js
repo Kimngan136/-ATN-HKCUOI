@@ -1,203 +1,336 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDays, faPerson, faHouse } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import { Checkbox, Flex, Input, InputNumber } from 'antd';
+import * as signalR from '@microsoft/signalr';
+import { Link, useParams } from 'react-router-dom';
+import { Button, Card, Checkbox, Dropdown, Flex, Input, InputNumber, Menu, Rate, message } from 'antd';
 import { DatePicker, Space } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import axiosCustomize from '../axios/axiosCustomize';
+import SlidesDetails from '../Components/SlidesDetails';
+import MapDetail from '../Components/MapDetail';
+
+import { MdOutlineEmail } from "react-icons/md";
+import { FaRegClock, FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import SpinComponents from '../Components/Spin';
+import { UserOutlined } from '@ant-design/icons';
+import SlidesReview from '../Components/SlidesReview';
+import RoomTypesTable from '../Components/RoomTypesTable';
+
 dayjs.extend(customParseFormat);
 const { RangePicker } = DatePicker;
 
 const Details = () => {
-    const onChange = (value) => {
-        console.log('changed', value);
+    const { id: hoteld } = useParams();
+    const [hotelDetail, setHotelDetail] = useState();
+
+
+    const [adults, setAdults] = useState(2);
+    const [children, setChildren] = useState(0);
+    const [rooms, setRooms] = useState(1);
+
+
+    const [checkinDate, setCheckIn] = useState();
+    const [checkoutDate, setCheckOut] = useState();
+    const dateFormat = 'DD/MM/YYYY';
+
+    const [tempAdults, setTempAdults] = useState(adults);
+    const [tempChildren, setTempChildren] = useState(children);
+    const [tempRooms, setTempRooms] = useState(rooms);
+
+
+    const handleDateChange = (dates, dateStrings) => {
+        if (dateStrings[0] && dateStrings[1]) {
+            const fromDate = dayjs(dateStrings[0], dateFormat).format('YYYY-MM-DD');
+            const toDate = dayjs(dateStrings[1], dateFormat).format('YYYY-MM-DD');
+            setCheckIn(fromDate);
+            setCheckOut(toDate);
+        }
     };
-    const phongtrong = (e) => {
-        console.log(`checked = ${e.target.checked}`);
+
+    const disabledDate = (current) => {
+        return current && current < dayjs().endOf('day');
     };
+
+    const handleDone = () => {
+        setAdults(tempAdults);
+        setChildren(tempChildren);
+        setRooms(tempRooms);
+        // Perform any other actions needed on submission
+    };
+
+
+
+
+
+    const handleSearchRoom = () => {
+
+        // const queryParams = {
+        //     province: province,
+        //     checkinDate,
+        //     checkoutDate,
+        //     numberOfPeople: (adults + children),
+        //     numberOfRooms: rooms,
+        // };
+
+        // // Tạo một mảng các phần tử trong query string
+        // const queryString = Object.keys(queryParams)
+        //     .map(key => {
+        //         if (key === 'fromDate' || key === 'toDate') {
+        //             return queryParams[key] ? `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}` : '';
+        //         }
+        //         // Thay dấu cách bằng dấu '+', không cần encode
+        //         const value = queryParams[key] ? queryParams[key].toString().replace(/ /g, '+') : '';
+        //         return value ? `${encodeURIComponent(key)}=${value}` : '';
+        //     })
+        //     .filter(Boolean) // Loại bỏ các phần tử rỗng trong mảng
+        //     .join('&');
+
+    };
+
+    const menu = (
+        <Menu style={{ display: 'flow', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Menu.Item key="1">
+                <div style={{ display: 'flex' }}>
+                    <label>Người lớn</label>
+                    <InputNumber
+                        min={1}
+                        max={10}
+                        value={tempAdults}
+                        style={{ marginLeft: 30 }}
+                        onChange={value => setTempAdults(value)}
+                    />
+                </div>
+            </Menu.Item>
+            <Menu.Item key="2">
+                <div style={{ display: 'flex' }}>
+                    <label>Trẻ em</label>
+                    <InputNumber
+                        min={0}
+                        max={10}
+                        value={tempChildren}
+                        style={{ marginLeft: 50 }}
+                        onChange={value => setTempChildren(value)}
+                    />
+                </div>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <div style={{ display: 'flex' }}>
+                    <label>Phòng</label>
+                    <InputNumber
+                        min={1}
+                        max={10}
+                        value={tempRooms}
+                        style={{ marginLeft: 50 }}
+                        onChange={value => setTempRooms(value)}
+                    />
+                </div>
+            </Menu.Item>
+            <Menu.Item key="4">
+                <Button type="primary" style={{ width: '100%' }} onClick={handleDone}>Xong</Button>
+            </Menu.Item>
+        </Menu>
+    );
+
+    const [room, setRoom] = useState();
+    const [messageApi, contextHolder] = message.useMessage()
+    const formatTime = (time) => time.slice(0, 5);
+
+    useEffect(() => {
+        // Lấy query params từ URL hiện tại
+        // Lấy các giá trị từ query param
+
+        const fetchHotelDetail = async () => {
+
+            try {
+                const fetch = await axiosCustomize.get(`/Hotels/${hoteld}`)
+                console.log(fetch.data);
+                setHotelDetail(fetch.data)
+                // messageApi.open({
+                //     type: 'success',
+                //     content: 'Thành công',
+                // });
+            } catch (error) {
+                console.error('Đã xảy ra lỗi khi gửi yêu cầu:', error);
+            }
+        }
+        fetchHotelDetail();
+    }, []);
+
+    const [roomTypes, setRoomTypes] = useState();
+    useEffect(() => {
+        // Lấy query params từ URL hiện tại
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // Lấy các giá trị từ query params
+        const checkIn = urlParams.get('checkinDate');
+        const checkOut = urlParams.get('checkoutDate');
+        const numberOfPeople = urlParams.get('numberOfPeople');
+        const numberOfRooms = urlParams.get('numberOfRooms');
+
+        if (checkIn && checkOut && numberOfPeople && numberOfRooms) {
+            // Tạo object chứa dữ liệu để gửi đi
+            // const requestData = {
+            //     province: province,
+            //     checkinDate: checkIn,
+            //     checkinDate: checkOut,
+            //     numberOfPeople: parseInt(numberOfPeople),
+            //     numberOfRooms: parseInt(numberOfRooms)
+            // };
+
+            // URL endpoint
+            const fetchRoomTypes = async () => {
+                try {
+                    const fetch = await axiosCustomize.get(`/RoomTypes/getavailableroom?hotelId=${hoteld}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
+                    console.log('roomtype', fetch.data);
+                    setRoomTypes(fetch.data)
+                    messageApi.open({
+                        type: 'success',
+                        content: 'Thành công',
+                    });
+                } catch (error) {
+                    console.error('Đã xảy ra lỗi khi gửi yêu cầu:', error);
+                }
+            }
+            fetchRoomTypes();
+        }
+    }, []);
+
+
+
+    useEffect(() => {
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl('https://localhost:7186/availabilityHub') // Thay đổi địa chỉ tới Hub của bạn
+            .withAutomaticReconnect()
+            .build();
+
+        connection.start()
+            .then(() => {
+                console.log('Đã kết nối tới SignalR Hub');
+                connection.on("ReceiveAvailableRoomsUpdate", (roomId, availableRooms) => {
+                    console.log('roomId:', roomId, 'availableRooms', availableRooms)
+                    setRoomTypes(prevData => ({
+                        ...prevData,
+                        roomTypes: prevData.roomTypes.map(room => {
+                            if (room.id === roomId) {
+                                return {
+                                    ...room,
+                                    availableRooms: availableRooms
+                                };
+                            }
+                            return room;
+                        })
+                    }));
+                });
+            })
+            .catch(err => console.error('Lỗi kết nối SignalR: ', err));
+
+        return () => {
+            connection.stop();
+        };
+    }, []);
+
     return (
         <>
-            <div>
-                <div className='TOP3' style={{ marginTop: 60, color: 'black', fontWeight: 'bold', marginBottom: 20, }}>
-                    <h5 style={{ marginBottom: 30, marginLeft: 30, }}>THÔNG TIN CHI TIẾT CỦA PHÒNG</h5>
-                    <div className='containerBed'>
-                        <div className=' colum01 '>
+            {hotelDetail ? (
+                <div className='container'>
+
+                    <Card
+                        style={{
+                            width: '90%',
+                            backgroundColor: '#ebf2f7',
+                            marginLeft: '30px',
+                            fontSize: '15px',
+                        }}
+                    >
+
+                        <h5>{hotelDetail.hotelName}</h5>
+                        <p><FaLocationDot size={26} />{hotelDetail.address}</p>
+
+                        <p> <Rate disabled defaultValue={hotelDetail.ratingStarts} /></p>
+                        <div style={{ display: 'flex', gap: 20 }}>
+                            <p><strong><FaRegClock size={25} /> Giờ checkin:</strong> {formatTime(hotelDetail.checkinTime)}</p>
+                            <p><strong><FaRegClock size={25} /> Giờ checkin:</strong>  {formatTime(hotelDetail.checkoutTime)} </p>
                         </div>
-                        <div className='column rowbed'>
-                            <div className=' column1 '>
-                            </div>
-                            <div className='column2'>
-                            </div>
-                            <div className='column3'>
-                            </div>
-                            <div className='column4'>
-                                <Link to=''>
-                                    <button className='btn-seepic'>
-                                        XEM THÊM
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                        <label className='liner' >------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
-                        <br />
-
+                        <p><MdOutlineEmail size={25} />:{hotelDetail.email}</p>
+                        <p><FaPhoneAlt size={25} />:{hotelDetail.phoneNumber}</p>
+                    </Card>
+                    <div className='container' style={{ display: 'flex', marginTop: '20px' }}>
+                        <SlidesDetails hotelDetail={hotelDetail} />
+                        <MapDetail hotelData={hotelDetail} />
                     </div>
 
-                </div>
-            </div>
 
+                    {/* Right column for hotel details */}
 
-            <div className='row containerDetails'>
-                <div className='col' style={{paddingLeft:300,}} >
-                    <div><i class="fa-solid fa-bars"> </i> Khách Sạn
-                    </div>
-                    <div>
-                        <i class="fas fa-star bg-yellow-500 "></i>
-                        <i class="fas fa-star bg-yellow-500"></i>
-                        <i class="fas fa-star  bg-yellow-500 "></i>
-                        <i class="fas fa-star  bg-yellow-500 "></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div>
-                        <h3>THE SONG VŨNG TÀU</h3>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-location-dot"></i>
-                        162 Đường Thùy Vân, Phường 7, TP Vũng tàu
-                    </div>
-
-                </div>
-                <div className='col ' style={{ paddingLeft: 95, }}>
-                    <div>Giá Phòng Từ:</div>
-                    <div>
-                        <div class="price">1.990.000 đ</div>
-                        <span style={{color:'red'}}> 320.000 VNĐ /Đêm</span>
-                    </div>
-                    <div>
-                        <button class="btn-dat-phong">ĐẶT PHÒNG</button>                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div className='tien-ich1 '>
-                <h4 style={{ marginBottom: 20,color:'black', }}>Tiện Ích Khách Sạn</h4>
-                <div className='tien-ich'>
-                    <div>Gần trung tâm</div>
-                    <div>Nhà hàng</div>
-                    <div>Quày Bar</div>
-                    <div>Phòng Spa</div>
-                    <div>Gần trung tâm</div>
-                    
-                </div>
-            </div>
-            <div class='row List' style={{ color: 'black' }}>
-                <div className='containerSearch'>
-                    <div className='loai-phong'>
-                        <label>Loại phòng</label>
-                        <Flex vertical gap={12}>
-                            <Input placeholder="" />
-                        </Flex>
-                    </div>
-                    <div style={{ marginTop: 23, }}>
-                        <label>Phòng trống </label>
-                        <Checkbox onChange={phongtrong}></Checkbox>
-
-                    </div>
-                    <div >
-                    </div>
-                    <div className="icon-container" >
-                        <Link to='/HotelFilter'><i style={{ color: 'white' }} className="fa-solid fa-magnifying-glass"></i></Link>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div className='TOP3' style={{ marginTop: 40, color: 'black', fontWeight: 'bold' }}>
-                <h5 style={{ marginLeft: 30, marginBottom: 30, }}>
-                    <Link to='/Details'>XEM GẦN ĐÂY </Link>
-                </h5>
-                <div class="containerTrend">
-                    <div class="card" style={{ width: 250, height: 420, }} >
-                        <img class="card-img-top" src='../asset1/images/ks1.jpg' alt="Card image" />
-                        <div class="card-body" style={{ lineHeight: 2, }}>
-                            <h5 class="card-title" style={{ fontWeight: 'bold' }}>Khách sạn Mường Thanh Hội An</h5>
-                            <i class="fa-solid fa-map-pin"> <span>Hội An</span></i>
-                            <div >
-                                <i class="fas fa-star bg-yellow-500 "></i>
-                                <i class="fas fa-star bg-yellow-500"></i>
-                                <i class="fas fa-star  bg-yellow-500 "></i>
-                                <i class="fas fa-star  bg-yellow-500 "></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div className='sale'>
-                                <div className='rateCard'>
-                                    <a href='#'>
-                                        5.5
-                                    </a>
+                    <Card style={{
+                        width: '90%',
+                        backgroundColor: '#ebf2f7',
+                        marginLeft: '30px',
+                        fontSize: '15px',
+                        marginTop: '20px'
+                    }}>
+                        <div dangerouslySetInnerHTML={{ __html: hotelDetail.description }} />
+                        <h3>Hotel Services</h3>
+                        <ul>
+                            <li>Accepts Children: {hotelDetail.acceptChildren ? 'Yes' : 'No'}</li>
+                            <li>Accepts Pets: {hotelDetail.acceptPet ? 'Yes' : 'No'}</li>
+                            {/* Add more hotel services as needed */}
+                        </ul>
+                    </Card>
+                    <hr></hr>
+                    <Card
+                        style={{
+                            width: '90%',
+                            backgroundColor: '#ebf2f7',
+                            marginLeft: '30px',
+                            fontSize: '10px',
+                            marginTop: '20px'
+                        }}>
+                        <h4>Phòng trống</h4>
+                        <div className='container' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <div className='containerSearch' style={{ width: '750px' }}>
+                                <div style={{ marginTop: 20 }}>
+                                    <RangePicker
+                                        style={{ paddingLeft: 30 }}
+                                        format={dateFormat}
+                                        placeholder={['Ngày đến', 'Ngày đi']}
+                                        disabledDate={disabledDate}
+                                        onChange={handleDateChange}
+                                    />
                                 </div>
-                                <div >
-                                    <span class="price-strikethrough">1.990.000 đ</span>
-                                    <h3 >990.000 đ</h3>
+                                <div style={{ marginTop: 20 }}>
+                                    <Dropdown overlay={menu} trigger={['click']}>
+                                        <Button style={{}} icon={<UserOutlined />}>
+                                            {adults} người lớn - {children} trẻ em - {rooms} phòng
+                                        </Button>
+                                    </Dropdown>
+                                </div>
+                                <div className="icon-container">
+                                    <Button type="primary" onClick={handleSearchRoom}>
+
+                                        <i style={{ color: 'white' }} className="fa-solid fa-magnifying-glass"></i>
+
+                                    </Button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <RoomTypesTable roomTypes={roomTypes} />
+                    </Card>
+                    <hr></hr>
+                    <h3> Đánh giá</h3>
+                    <SlidesReview />
 
+                </div >
+            ) : (
 
+                <SpinComponents />
+            )
 
+            }
 
-
-            
-            <div className='TOP3' style={{ marginTop: 40, color: 'black', fontWeight: 'bold' }}>
-                <h5 style={{ marginLeft: 30, marginBottom: 30, }}>
-                    <Link to=''>KHÁCH SẠN TƯƠNG TỰ</Link>
-                </h5>
-                <div class="containerTrend">
-                    <div class="card" style={{ width: 250, height: 420, }} >
-                        <img class="card-img-top" src='../asset1/images/ks1.jpg' alt="Card image" />
-                        <div class="card-body" style={{ lineHeight: 2, }}>
-                            <h5 class="card-title" style={{ fontWeight: 'bold' }}>Khách sạn Mường Thanh Hội An</h5>
-                            <i class="fa-solid fa-map-pin"> <span>Hội An</span></i>
-                            <div >
-                                <i class="fas fa-star bg-yellow-500 "></i>
-                                <i class="fas fa-star bg-yellow-500"></i>
-                                <i class="fas fa-star  bg-yellow-500 "></i>
-                                <i class="fas fa-star  bg-yellow-500 "></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div className='sale'>
-                                <div className='rateCard'>
-                                    <a href='#'>
-                                        5.5
-                                    </a>
-                                </div>
-                                <div >
-                                    <span class="price-strikethrough">1.990.000 đ</span>
-                                    <h3 >990.000 đ</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-
-            <div className='TOP3' style={{ marginTop: 40, color: 'black', fontWeight: 'bold' }}>
-                <h5 style={{ marginLeft: 30, marginBottom: 30, }}>
-                    <Link to=''>ĐÁNH GIÁ</Link>
-                </h5>
-                
-            </div>
         </>
     );
 }

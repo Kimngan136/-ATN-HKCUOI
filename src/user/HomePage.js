@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate from
 import dayjs from 'dayjs';
 import axios from 'axios';
 import { GlobalOutlined, UserOutlined } from '@ant-design/icons';
+import { useRef } from 'react';
 
 dayjs.locale('vi');
 
@@ -69,6 +70,13 @@ const HomePage = () => {
         return current && current < dayjs().endOf('day');
     };
 
+    const handleInputNumberClick = e => {
+        // Prevent Dropdown from closing when clicking on InputNumber
+        e.stopPropagation();
+    };
+
+
+
     const menu = (
         <Menu style={{ display: 'flow', justifyContent: 'space-between', alignItems: 'center' }}>
             <Menu.Item key="1">
@@ -80,6 +88,9 @@ const HomePage = () => {
                         value={tempAdults}
                         style={{ marginLeft: 30 }}
                         onChange={value => setTempAdults(value)}
+                        // onPressEnter={() => { }}
+                        onClick={handleInputNumberClick}
+                        changeOnWheel
                     />
                 </div>
             </Menu.Item>
@@ -92,6 +103,9 @@ const HomePage = () => {
                         value={tempChildren}
                         style={{ marginLeft: 50 }}
                         onChange={value => setTempChildren(value)}
+                        // onPressEnter={() => { }}
+                        onClick={handleInputNumberClick}
+                        changeOnWheel
                     />
                 </div>
             </Menu.Item>
@@ -104,6 +118,9 @@ const HomePage = () => {
                         value={tempRooms}
                         style={{ marginLeft: 50 }}
                         onChange={value => setTempRooms(value)}
+                        // onPressEnter={() => { }}
+                        onClick={handleInputNumberClick}
+                        changeOnWheel
                     />
                 </div>
             </Menu.Item>
@@ -111,7 +128,7 @@ const HomePage = () => {
                 <Button type="primary" style={{ width: '100%' }} onClick={handleDone}>Xong</Button>
             </Menu.Item>
         </Menu>
-    );
+    )
 
     const handleSearch = () => {
 

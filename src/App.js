@@ -19,7 +19,12 @@ import Information from './Owner/Pages/Booking/Information';
 import BookingTable from './Owner/Pages/Booking/BookingTable';
 import RoomType from './Owner/Pages/Booking/RoomType';
 import ListFilter from './user/ListFilter';
+
 import Review from './user/Review';
+
+import NotFound from './user/NotFound';
+import PrivateRoute from './axios/PrivateRoute';
+
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -50,11 +55,14 @@ function App() {
                     <Route path="/detail/:id" element={<Details />}></Route>
                     <Route path="/pay" element={<Pay />}></Route>
                     <Route path="/confirmpayment" element={<Confirmpayment />}></Route>
+
+
+
                 </Route>
 
 
 
-                <Route path="/owner" element={<LayoutOwner />} >
+                <Route path="/owner" element={<PrivateRoute><LayoutOwner /></PrivateRoute>} >
                     <Route index path="dashboard" element={<DashBoard />} />
                     <Route path="information" element={<Information />} />
                     <Route path="booking" element={<BookingTable />} />
@@ -68,6 +76,7 @@ function App() {
                 <Route path="/listfilter" element={<ListFilter />}></Route>
                 <Route path="/Review" element={<Review />}></Route>
 
+                <Route path="*" element={<NotFound />}></Route>
             </Routes >
 
 

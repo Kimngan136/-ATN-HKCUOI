@@ -67,7 +67,7 @@ const Map = (props) => {
           .addTo(largeMap.current);
 
         const popup = new mapboxgl.Popup({ offset: 25 })
-          .setText(marker.title)
+          .setPopup(new mapboxgl.Popup().setHTML(`<h4>${marker.hotelName}</h4><p>${marker.address}</p>`))
         // .addTo(largeMap?.current);
 
         customMarker.setPopup(popup);
