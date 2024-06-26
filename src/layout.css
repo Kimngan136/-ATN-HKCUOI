@@ -1346,9 +1346,7 @@ th {
 /***************************************************    FILTER KHÁCH SẠN     ********************************/
 
 /***********************************************************        FILTER       *************************************************************/
-.filter-sidebar {
-    width: 320px;
-}
+
 
 Slider.rc-slider-rail {
     background-color: #f2f2f2;
@@ -1374,6 +1372,7 @@ Slider.rc-slider-handle {
 Slider.rc-slider-handle:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .filter-sidebar {
     height: 700px;
     width: 300px;
