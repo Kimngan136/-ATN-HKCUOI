@@ -85,8 +85,6 @@ const Newpass = () => {
 
                         <div >
                             <Button type="primary" htmlType="submit" style={{ width: '100%', height: '50px' }}>
-
-
                                 Gửi
                             </Button>
                         </div>
