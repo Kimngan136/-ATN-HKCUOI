@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Dropdown, Button } from 'antd';
+import { Menu, Dropdown, Button, Flex } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { jwtDecode } from 'jwt-decode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -80,21 +80,28 @@ const Header = () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: 15 }} >
-                    <div className='topH1'>
-                        <Link to='#'><FontAwesomeIcon icon={faUser} /> Kiểm tra đơn hàng</Link>
-                    </div>
-                    <div className='topH1'>
-                        <Link to='#'><FontAwesomeIcon icon={faCalendarDays} /> Đăng chổ nghỉ của bạn ?</Link>
-                    </div>
+
+                    <Flex gap="small" wrap >
+
+                        <Button><FontAwesomeIcon icon={faUser} /> Kiểm tra đơn hàng</Button>
+                    </Flex>
+                    <Flex gap="small" wrap>
+
+                        <Button><FontAwesomeIcon icon={faCalendarDays} /> Đăng chổ nghỉ của bạn ?</Button>
+                    </Flex>
+
 
                     {!decodedToken ? (
                         <>
-                            <div className='topH1'>
-                                <Link to='/login'><FontAwesomeIcon icon={faUser} /> Đăng Nhập</Link>
-                            </div>
-                            <div className='topH1'>
-                                <Link to='/register'><FontAwesomeIcon icon={faUserPlus} /> Đăng Ký</Link>
-                            </div>
+                            <Flex gap="small" wrap >
+
+                                <Button><Link to='/login'><FontAwesomeIcon icon={faUser} /> Đăng Nhập</Link></Button>
+                            </Flex>
+                            <Flex gap="small" wrap >
+
+                                <Button><Link to='/register'><FontAwesomeIcon icon={faUserPlus} /> Đăng Ký</Link></Button>
+                            </Flex>
+
                         </>
                     ) : greeting}
                 </div>
