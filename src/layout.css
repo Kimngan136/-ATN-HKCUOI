@@ -437,6 +437,16 @@ a {
     margin-right: 0;
 }
 
+<<<<<<< Updated upstream
+=======
+/***********************************************************        FILTER       *************************************************************/
+.filter-sidebar {
+    width: 320px;
+}
+
+.clear-button {
+    background-color: #f44336;
+>>>>>>> Stashed changes
 
 
 /*********************************************  NÚT ĐẶT PHÒNG *****************************************************************/
@@ -716,6 +726,27 @@ a {
     display: flex;
     background: rgba(0, 191, 255, 0.94);
 }
+<<<<<<< Updated upstream
+=======
+
+/* 
+.field span {
+    color: #222;
+    width: 40px;
+    line-height: 45px;
+}
+
+.field input {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #222;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+} */
+>>>>>>> Stashed changes
 
 .space {
     margin-top: 16px;
@@ -1342,6 +1373,11 @@ th {
     gap: 10px;
 
 }
+<<<<<<< Updated upstream
+=======
+
+/***************************************************    FILTER KHÁCH SẠN     ********************************/
+>>>>>>> Stashed changes
 
 /***************************************************    FILTER KHÁCH SẠN     ********************************/
 .containerFilter {
