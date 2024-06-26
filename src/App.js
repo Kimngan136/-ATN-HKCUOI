@@ -24,6 +24,8 @@ import Review from './user/Review';
 
 import NotFound from './user/NotFound';
 import PrivateRoute from './axios/PrivateRoute';
+import Repass from './user/Repass';
+import Newpass from './user/Newpass';
 
 
 function App() {
@@ -75,6 +77,8 @@ function App() {
                 <Route path="/registerhotel" element={<HotelRegister />}></Route>
                 <Route path="/listfilter" element={<ListFilter />}></Route>
                 <Route path="/Review" element={<Review />}></Route>
+                <Route path="/Repass" element={<Repass />}></Route>
+                <Route path="/Newpass" element={<Newpass />}></Route>
 
                 <Route path="*" element={<NotFound />}></Route>
             </Routes >
