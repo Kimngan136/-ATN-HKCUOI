@@ -27,6 +27,8 @@ import PrivateRoute from './axios/PrivateRoute';
 import Repass from './user/Repass';
 import Newpass from './user/Newpass';
 import HistoryUser from './user/HistoryUser';
+import FogotPass from './user/FogotPass';
+import ConfirmPass from './user/ConfirmPass';
 
 
 function App() {
@@ -80,8 +82,10 @@ function App() {
                 <Route path="/Review" element={<Review />}></Route>
                 <Route path="/Repass" element={<Repass />}></Route>
                 <Route path="/Newpass" element={<Newpass />}></Route>
-                
+
                 <Route path="/HistoryUser" element={<HistoryUser />}></Route>
+                <Route path="/forgotpassword" element={<FogotPass />}></Route>
+                <Route path="/resetpassword" element={<ConfirmPass />}></Route>
 
                 <Route path="*" element={<NotFound />}></Route>
             </Routes >

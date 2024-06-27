@@ -5,10 +5,10 @@ import { AutoComplete, DatePicker, Dropdown, InputNumber, Menu, Select, Table, S
 import { GlobalOutlined, UserOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi';
-import axios from 'axios';
-import axiosCustomize from '../axios/axiosCustomize';
+
 import Map from '../Components/Map';
 import ListFilter from './ListFilter';
+import { axiosJson } from '../axios/axiosCustomize';
 
 
 const { RangePicker } = DatePicker;
@@ -59,7 +59,7 @@ const HotelFilter = () => {
                 console.log('requestData', province);
                 // Gửi yêu cầu Axios
                 try {
-                    const fetch = await axiosCustomize.post(`/Hotels/getavailablehotel?province=${province}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
+                    const fetch = await axiosJson.post(`/Hotels/getavailablehotel?province=${province}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
                     console.log(fetch.data);
                     setHotelData(fetch.data)
                     messageApi.open({

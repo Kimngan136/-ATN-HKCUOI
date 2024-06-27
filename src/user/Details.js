@@ -6,7 +6,7 @@ import { Button, Card, Checkbox, Dropdown, Flex, Input, InputNumber, Menu, Rate,
 import { DatePicker, Space } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import axiosCustomize from '../axios/axiosCustomize';
+import { axiosJson } from '../axios/axiosCustomize';
 import SlidesDetails from '../Components/SlidesDetails';
 import MapDetail from '../Components/MapDetail';
 
@@ -144,7 +144,7 @@ const Details = () => {
         const fetchHotelDetail = async () => {
 
             try {
-                const fetch = await axiosCustomize.get(`/Hotels/${hoteld}`)
+                const fetch = await axiosJson.get(`/Hotels/${hoteld}`)
                 console.log(fetch.data);
                 setHotelDetail(fetch.data)
                 // messageApi.open({
@@ -183,7 +183,7 @@ const Details = () => {
             // URL endpoint
             const fetchRoomTypes = async () => {
                 try {
-                    const fetch = await axiosCustomize.get(`/RoomTypes/getavailableroom?hotelId=${hoteld}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
+                    const fetch = await axiosJson.get(`/RoomTypes/getavailableroom?hotelId=${hoteld}&checkinDate=${checkIn}&checkoutDate=${checkOut}&numberOfPeople=${numberOfPeople}&numberOfRooms=${numberOfRooms}`)
                     console.log('roomtype', fetch.data);
                     setRoomTypes(fetch.data)
                     messageApi.open({

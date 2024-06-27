@@ -1,8 +1,11 @@
 import React from 'react';
 import { UserOutlined, LockOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import { Input, Form, Button, message } from 'antd';
-import axiosCustomize from '../axios/axiosCustomize';
 import { Link } from 'react-router-dom';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
+import FacebookLogin from 'react-facebook-login-lite';
+import { axiosJson } from '../axios/axiosCustomize';
 // import './Login.css'; // Import file CSS để custom style
 
 const Login = () => {
@@ -12,7 +15,7 @@ const Login = () => {
         try {
             console.log('Form values:', values);
 
-            const response = await axiosCustomize.post('/Users/login', {
+            const response = await axiosJson.post('/Users/login', {
                 Email: values.username,
                 Password: values.password
             });
@@ -23,14 +26,48 @@ const Login = () => {
                 localStorage.setItem('jwt', response.data.token);
                 // Redirect to home or dashboard
                 window.location.href = '/';
-            } else {
-                message.error(response.data || 'Sai tên đăng nhập hoặc mật khẩu');
+
+            }
+            else {
+                message.error('Sai tên đăng nhập hoặc mật khẩu');
             }
         } catch (error) {
             console.error('Error:', error);
             message.error('Đã xảy ra lỗi khi đăng nhập');
         }
     };
+
+
+    const responseGoogle = async (response) => {
+        try {
+            const result = await axios.post('https://localhost:7186/api/Users/google-login', {
+                tokenId: response.credential,
+            });
+            console.log(result.data.token);
+            // Lưu token và xử lý đăng nhập thành công
+            localStorage.setItem('jwt', result.data.token);
+            window.location.href = '/';
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const responseFacebook = async (response) => {
+        try {
+            const result = await axios.post('https://localhost:7186/api/Users/facebook-login', {
+                tokenId: response.authResponse.accessToken,
+            });
+
+            // Lưu token và xử lý đăng nhập thành công
+            localStorage.setItem('token', result.data.token);
+            // Redirect to home or dashboard
+            window.location.href = '/';
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
 
     return (
         <>
@@ -41,7 +78,7 @@ const Login = () => {
                     </Link>
                 </div>
             </div>
-            <div className="bg-img">
+            <div className="bg-img" style={{ height: '680px' }}>
                 <div className="content"  >
                     <h1 className='login-name'>ĐĂNG NHẬP</h1>
                     <Form
@@ -99,10 +136,29 @@ const Login = () => {
                         hoặc
                     </div>
                     <div className="links">
-                        {/* Button đăng nhập bằng Google */}
-                        <div className="instagram">
-                            <i className="fa-brands fa-google"></i>
+                        <div >
+                            <GoogleOAuthProvider clientId="702226400553-a23melhr8d23jmlvn19vmj578922dlkr.apps.googleusercontent.com">
+                                <GoogleLogin
+                                    onSuccess={responseGoogle}
+                                    onError={() => {
+                                        console.error('Login Failed');
+                                    }}
+                                    size='large'
+                                    width={330}
+                                />
+                            </GoogleOAuthProvider>
                         </div>
+                        <div>
+                            {/* <FacebookLogin
+                                appId="840379307822970"
+                                autoLoad={false}
+                                fields="name,email,picture"
+                                callback={responseFacebook}
+                                icon="fa-facebook"
+                            /> */}
+                        </div>
+
+
                     </div>
                     <div className="signup" style={{ color: 'black' }}>
                         Bạn chưa có tài khoản?
